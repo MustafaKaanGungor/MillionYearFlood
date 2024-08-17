@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3071411775339696456
+--- !u!1001 &6566369918707504823
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 460954404287079302, guid: 1ed4c1f6aa372ef488abd25726069aa2, type: 3}
       propertyPath: m_Color.b
-      value: 0.8207547
+      value: 0.23584908
       objectReference: {fileID: 0}
     - target: {fileID: 460954404287079302, guid: 1ed4c1f6aa372ef488abd25726069aa2, type: 3}
       propertyPath: m_Color.g
-      value: 0.8207547
+      value: 0.23584908
       objectReference: {fileID: 0}
     - target: {fileID: 460954404287079302, guid: 1ed4c1f6aa372ef488abd25726069aa2, type: 3}
       propertyPath: m_Color.r
-      value: 0.8207547
+      value: 0.23584908
       objectReference: {fileID: 0}
     - target: {fileID: 8644515109754898156, guid: 1ed4c1f6aa372ef488abd25726069aa2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8644515109754898156, guid: 1ed4c1f6aa372ef488abd25726069aa2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.68
       objectReference: {fileID: 0}
     - target: {fileID: 8644515109754898156, guid: 1ed4c1f6aa372ef488abd25726069aa2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -62,11 +62,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8661778686666718499, guid: 1ed4c1f6aa372ef488abd25726069aa2, type: 3}
       propertyPath: m_Name
-      value: Iron
+      value: Coal
       objectReference: {fileID: 0}
     - target: {fileID: 8661778686666718499, guid: 1ed4c1f6aa372ef488abd25726069aa2, type: 3}
       propertyPath: m_TagString
-      value: Iron
+      value: Coal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

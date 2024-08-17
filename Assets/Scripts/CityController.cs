@@ -11,7 +11,9 @@ public class CityController : MonoBehaviour
 
     private float defMaxSpeed;
     private float acceleration = 0.5f;
-
+    private int coalConsumption = 1;
+    private float coalConsumeDur = 1f;
+    private float coalConsumeTime = 0f;
     public bool isWaiting = false;
 
     [SerializeField] private ResourceManager resourceManager;
@@ -27,6 +29,8 @@ public class CityController : MonoBehaviour
     // Update is called once per frame
     void Update(){
 
+
+
         if(speed < maxSpeed) {
             Accelerate();
         }
@@ -39,6 +43,15 @@ public class CityController : MonoBehaviour
         if (speed == 0) return;
 
         MoveUp();
+
+        coalConsumeTime += Time.deltaTime;
+
+        if(coalConsumeTime >= coalConsumeDur) {
+            coalConsumeTime = 0f;
+            int amount = (int)(coalConsumption * speed * 10) / 10;
+
+            UseCoal(amount);
+        }
     }
 
     public void ToggleWait() {
@@ -64,6 +77,16 @@ public class CityController : MonoBehaviour
 
     }
 
+    private void UseCoal(int amount) {
+        Debug.Log("coal consumed: " + amount);
+        resourceManager.RemoveResource(ResourceManager.ResourceType.Coal, amount);
+        Debug.Log("coal remain: " + resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal));
+
+        if (resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal) == 0) {
+            maxSpeed = 0f;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Flood")) {
             // Game over
@@ -76,9 +99,18 @@ public class CityController : MonoBehaviour
             resourceTimer += Time.deltaTime;
             if(resourceTimer > 2) {
                 resourceTimer = 0;
-                resourceManager.AddResource(ResourceManager.ResourceType.Stone, 5);
+                resourceManager.AddResource(ResourceManager.ResourceType.Iron, 5);
                 Debug.Log(resourceManager.GetResourceAmount(ResourceManager.ResourceType.Stone));
             }
         }
+        if (collision.gameObject.CompareTag("Coal") && isWaiting) {
+            resourceTimer += Time.deltaTime;
+            if (resourceTimer > 2) {
+                resourceTimer = 0;
+                resourceManager.AddResource(ResourceManager.ResourceType.Coal, 5);
+                Debug.Log(resourceManager.GetResourceAmount(ResourceManager.ResourceType.Stone));
+            }
+        }
+
     }
 }

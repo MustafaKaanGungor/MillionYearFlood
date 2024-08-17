@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResourceManager : MonoBehaviour
 {
 
-    public enum ResourceType { Wood, Stone, Gold }
+    public enum ResourceType { Wood, Stone, Coal, Iron }
     private Dictionary<ResourceType, int> resources = new Dictionary<ResourceType, int>();
 
     void Start()
@@ -15,6 +15,8 @@ public class ResourceManager : MonoBehaviour
         {
             resources[type] = 0;
         }
+
+        AddResource(ResourceType.Coal, 20);
     }
 
     public void AddResource(ResourceType type, int amount)
