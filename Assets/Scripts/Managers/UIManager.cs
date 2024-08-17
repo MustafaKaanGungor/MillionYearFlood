@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void ToggleGameplayPanel(bool active) {
-        gameplayPanel.gameObject.SetActive(!active);
+        gameplayPanel.SetActive(!active);
     }
 
     public void ToggleMainMenu(bool active) {

@@ -12,18 +12,10 @@ public class GameManager : MonoBehaviour
     public delegate void OnGameOverDelegate();
     public static event OnGameOverDelegate OnGameOver;
 
-    public static GameManager instance;
 
     void Awake() {
         Time.timeScale = 1f;
-
-
-        if (instance != null && instance != this)
-            Destroy(this.gameObject);
-        else
-            instance = this;
-
-        DontDestroyOnLoad(this.gameObject);
+        isPaused = false;
     }
 
     // Start is called before the first frame update

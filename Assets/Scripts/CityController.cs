@@ -17,6 +17,8 @@ public class CityController : MonoBehaviour
     public bool isWaiting = false;
 
     [SerializeField] private ResourceManager resourceManager;
+    [SerializeField] private GameManager gameManager;
+
     private float resourceTimer;
 
 
@@ -28,9 +30,6 @@ public class CityController : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-
-
-
         if(speed < maxSpeed) {
             Accelerate();
         }
@@ -90,7 +89,7 @@ public class CityController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Flood")) {
             // Game over
-            GameManager.instance.GameOver();
+            gameManager.GameOver();
         }
     }
 
