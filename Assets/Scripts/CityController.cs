@@ -19,6 +19,7 @@ public class CityController : MonoBehaviour
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private GameManager gameManager;
 
+    private int tier = 1;
     private float ironTimer;
     private float coalTimer;
     private float woodTimer;
@@ -85,9 +86,14 @@ public class CityController : MonoBehaviour
         resourceManager.RemoveResource(ResourceManager.ResourceType.Coal, amount);
         Debug.Log("coal remain: " + resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal));
 
-        if (resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal) == 0) {
-            maxSpeed = 0f;
+        if (resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal) == 0 && !isWaiting) {
+            ToggleWait();   
         }
+    }
+
+    public void UnlockSecondTier() {
+        animator.SetBool("isTier2", true);
+        tier = 2;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

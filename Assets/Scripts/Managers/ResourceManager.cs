@@ -18,6 +18,11 @@ public class ResourceManager : MonoBehaviour
         }
 
         AddResource(ResourceType.Coal, 20);
+        AddResource(ResourceType.Iron, 20);
+        AddResource(ResourceType.Wood, 20);
+        AddResource(ResourceType.Water, 20);
+
+
     }
     private void Update() 
     {
