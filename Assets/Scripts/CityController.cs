@@ -121,5 +121,21 @@ public class CityController : MonoBehaviour
                 Debug.Log("total coal amount: " + resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal));
             }
         }
+        if (collision.gameObject.CompareTag("Wood") && isWaiting) {
+            woodTimer += Time.deltaTime;
+            if (woodTimer > 2) {
+                woodTimer = 0;
+                resourceManager.AddResource(ResourceManager.ResourceType.Wood, 5);
+                Debug.Log("total coal amount: " + resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal));
+            }
+        }
+        if (collision.gameObject.CompareTag("Water") && isWaiting) {
+            waterTimer += Time.deltaTime;
+            if (waterTimer > 2) {
+                waterTimer = 0;
+                resourceManager.AddResource(ResourceManager.ResourceType.Water, 5);
+                Debug.Log("total coal amount: " + resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal));
+            }
+        }
     }
 }
