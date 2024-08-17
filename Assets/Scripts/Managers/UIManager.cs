@@ -64,7 +64,7 @@ public class UIManager : MonoBehaviour
     void ProgressBars() {
         float playerProgress = playerTransform.position.y / mapborder;
         playerSlider.value = playerProgress;
-        float waveProgress = (waveTransform.position.y + 17) / mapborder;
+        float waveProgress = (waveTransform.position.y + 4) / mapborder;
         waveSlider.value = waveProgress;
     }
 
@@ -77,6 +77,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void SetResourceGatheringBarActive() {
+        ResourceGatheringBar(0f);
         resourceGatheringBar.gameObject.SetActive(false);
     }
 
