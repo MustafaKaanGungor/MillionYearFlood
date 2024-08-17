@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.VisualScripting;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverPanel;
 
     public TMP_Text[] ResourceTexts;
+
+    [SerializeField] private Slider playerSlider;
+    [SerializeField] private Slider waveSlider;
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private Transform waveTransform;
+    [SerializeField] private float mapborder;
 
 
     private void OnEnable() {
@@ -46,6 +53,17 @@ public class UIManager : MonoBehaviour
     public void ReloadScene() 
     {
         SceneManager.LoadScene(0);
+    }
+
+    private void Update() {
+        ProgressBars();
+    } 
+
+    void ProgressBars() {
+        float playerProgress = playerTransform.position.y / mapborder;
+        playerSlider.value = playerProgress;
+        float waveProgress = (waveTransform.position.y + 17) / mapborder;
+        waveSlider.value = waveProgress;
     }
 
     
