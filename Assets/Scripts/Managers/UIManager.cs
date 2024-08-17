@@ -43,7 +43,29 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void ReloadScene() {
+    public void ReloadScene() 
+    {
         SceneManager.LoadScene(0);
+    }
+
+    
+
+    public void UpdateResourceUI(Dictionary<ResourceManager.ResourceType, int> resources)
+    {
+        foreach (ResourceManager.ResourceType type in System.Enum.GetValues(typeof(ResourceManager.ResourceType)))
+    {
+        int index = (int)type;
+        if (index >= 0 && index < ResourceTexts.Length)
+        {
+            if (resources.ContainsKey(type))
+            {
+                ResourceTexts[index].text = resources[type].ToString();
+            }
+            else
+            {
+                ResourceTexts[index].text = "0";
+            }
+        }
+    }
     }
 }
