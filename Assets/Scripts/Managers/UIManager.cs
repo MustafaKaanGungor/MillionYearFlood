@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     public GameObject gameplayPanel;
     public GameObject mainMenu;
     public GameObject gameOverPanel;
+
+    public TMP_Text[] ResourceTexts;
 
 
     private void OnEnable() {

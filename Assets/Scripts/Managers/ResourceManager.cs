@@ -7,7 +7,7 @@ public class ResourceManager : MonoBehaviour
 
     public enum ResourceType { Wood, Stone, Coal, Iron }
     private Dictionary<ResourceType, int> resources = new Dictionary<ResourceType, int>();
-
+    
     void Start()
     {
 
@@ -18,6 +18,7 @@ public class ResourceManager : MonoBehaviour
 
         AddResource(ResourceType.Coal, 20);
     }
+
 
     public void AddResource(ResourceType type, int amount)
     {
