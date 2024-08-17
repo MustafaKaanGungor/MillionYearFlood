@@ -5,24 +5,24 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public Button waitButton;
+    public GameObject gameplayPanel;
     public GameObject mainMenu;
 
 
     private void OnEnable() {
         GameManager.OnPauseToggled += ToggleMainMenu;
-        GameManager.OnPauseToggled += ToggleWaitButton;
+        GameManager.OnPauseToggled += ToggleGameplayPanel;
 
     }
 
     private void OnDisable() {
         GameManager.OnPauseToggled -= ToggleMainMenu;
-        GameManager.OnPauseToggled -= ToggleWaitButton;
+        GameManager.OnPauseToggled -= ToggleGameplayPanel;
 
     }
 
-    public void ToggleWaitButton(bool active) {
-        waitButton.gameObject.SetActive(!active);
+    public void ToggleGameplayPanel(bool active) {
+        gameplayPanel.gameObject.SetActive(!active);
     }
 
     public void ToggleMainMenu(bool active) {
