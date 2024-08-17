@@ -705,6 +705,7 @@ GameObject:
   - component: {fileID: 228674598}
   - component: {fileID: 228674600}
   - component: {fileID: 228674601}
+  - component: {fileID: 228674602}
   m_Layer: 0
   m_Name: City
   m_TagString: Untagged
@@ -753,8 +754,8 @@ SpriteRenderer:
   m_SortingLayerID: 720558271
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.49056602, g: 0.12726949, b: 0.12726949, a: 1}
+  m_Sprite: {fileID: 21300000, guid: be90534c71b98b74cb574c76297577a1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -816,7 +817,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.5428572, y: 1.5428572}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -837,8 +838,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab185a5759940342acfa32f94b1301b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 228674602}
   speed: 1
   isWaiting: 0
+--- !u!95 &228674602
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228674597}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 58e83e4972f85e844afd684983e19bc5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &234270635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,8 +1200,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 720558271
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.36209506, g: 0.6843642, b: 0.9716981, a: 1}
@@ -1598,7 +1621,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Wait
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2032,6 +2055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190fcb1f97ccce74ca222c53bf3b33ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPaused: 0
 --- !u!1 &1072390070
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,7 +2181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
+  m_Color: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.7921569}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2337,10 +2361,10 @@ RectTransform:
   - {fileID: 731992118}
   m_Father: {fileID: 1904990777}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 777, y: 427}
-  m_SizeDelta: {x: 247.3965, y: 106.1195}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -112.5, y: 0}
+  m_SizeDelta: {x: 141.8, y: 106.1195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1284307739
 MonoBehaviour:
@@ -2386,13 +2410,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 228674601}
+        m_TargetAssemblyTypeName: CityController, Assembly-CSharp
+        m_MethodName: ToggleWait
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3278,6 +3302,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1038046788}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: TogglePause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1753458577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3715,6 +3751,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a0d3fa89daace4f8881117e93fc498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitButton: {fileID: 1284307739}
+  mainMenu: {fileID: 1835824635}
 --- !u!114 &1904990774
 MonoBehaviour:
   m_ObjectHideFlags: 0

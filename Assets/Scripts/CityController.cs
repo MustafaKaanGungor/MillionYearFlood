@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CityController : MonoBehaviour
 {
+    public Animator animator;
+
     public float speed = 1f;
     public bool isWaiting = false;
 
@@ -21,21 +23,18 @@ public class CityController : MonoBehaviour
 
 
         MoveUp();
-        
-
     }
 
     public void ToggleWait() {
         isWaiting = !isWaiting;
-    }
 
-    public void Wait() {
-
+        animator.speed = isWaiting ? 0f : 1f;
     }
 
 
     public void MoveUp() {
         transform.position += Vector3.up * Time.deltaTime * speed;
     }
+
 
 }
