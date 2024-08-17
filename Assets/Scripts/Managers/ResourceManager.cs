@@ -10,10 +10,12 @@ public class ResourceManager : MonoBehaviour
     private Dictionary<ResourceType, int> resourcesCapacity = new Dictionary<ResourceType, int>();
 
     public UIManager uiManager;
-    
+
+    public delegate void OnResourceChangedDelegate();
+    public static event OnResourceChangedDelegate OnResourceChanged;
+
     void Start()
     {
-
         foreach (ResourceType type in System.Enum.GetValues(typeof(ResourceType)))
         {
             resources[type] = 0;
@@ -21,7 +23,6 @@ public class ResourceManager : MonoBehaviour
 
         resourcesCapacity[ResourceType.Wood] = 50;
         resourcesCapacity[ResourceType.Water] = 50;
-
 
         AddResource(ResourceType.Coal, 20);
         AddResource(ResourceType.Iron, 20);
@@ -37,12 +38,17 @@ public class ResourceManager : MonoBehaviour
     public void AddResource(ResourceType type, int amount)
     {
         resources[type] += amount;
+        OnResourceChanged?.Invoke();
+
     }
 
     public bool RemoveResource(ResourceType type, int amount){
         if (resources[type] >= amount)
         {
             resources[type] -= amount;
+
+            OnResourceChanged?.Invoke();
+
             return true;
         }
         else
