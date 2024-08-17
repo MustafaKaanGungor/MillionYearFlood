@@ -2760,7 +2760,7 @@ GameObject:
   - component: {fileID: 829645577}
   - component: {fileID: 829645576}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: CameraBounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4472,7 +4472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BoundingShape2D: {fileID: 829645576}
-  m_Damping: 0.5
+  m_Damping: 5
   m_MaxWindowSize: -1
 --- !u!1 &1605094968
 GameObject:
@@ -6324,15 +6324,15 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 84833399}
+  - {fileID: 1537969656}
   - {fileID: 1904990777}
   - {fileID: 1038046787}
   - {fileID: 1467720735}
   - {fileID: 234270637}
   - {fileID: 1741917439}
-  - {fileID: 84833399}
   - {fileID: 228674599}
   - {fileID: 521980005}
   - {fileID: 1293152178}
   - {fileID: 294604729}
   - {fileID: 1758353401}
-  - {fileID: 1537969656}
