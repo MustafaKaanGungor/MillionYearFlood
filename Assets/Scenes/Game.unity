@@ -2758,7 +2758,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 829645577}
-  - component: {fileID: 829645576}
+  - component: {fileID: 829645578}
   m_Layer: 0
   m_Name: CameraBounds
   m_TagString: Untagged
@@ -2766,7 +2766,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!60 &829645576
+--- !u!4 &829645577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829645575}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 521980005}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &829645578
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2810,27 +2825,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.0051150993, y: 1.8260446}
-      - {x: -0.49527395, y: 1.8039674}
-      - {x: -0.5071299, y: 0.47468683}
-      - {x: 0.51121306, y: 0.47312847}
-      - {x: 0.49439833, y: 1.7856439}
+    - - {x: -0.005760893, y: 4.6705294}
+      - {x: -0.53372693, y: 4.6643}
+      - {x: -0.508731, y: 0.45388615}
+      - {x: 0.5168471, y: 0.45642802}
+      - {x: 0.5273184, y: 4.6711726}
   m_UseDelaunayMesh: 0
---- !u!4 &829645577
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829645575}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 521980005}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &838613300
 GameObject:
   m_ObjectHideFlags: 0
@@ -4287,7 +4287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BoundingShape2D: {fileID: 829645576}
+  m_BoundingShape2D: {fileID: 829645578}
   m_Damping: 5
   m_MaxWindowSize: -1
 --- !u!1 &1605094968
