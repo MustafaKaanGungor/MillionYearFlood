@@ -99,7 +99,7 @@ public class CityController : MonoBehaviour
             if(resourceTimer > 2) {
                 resourceTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Iron, 5);
-                Debug.Log(resourceManager.GetResourceAmount(ResourceManager.ResourceType.Stone));
+                Debug.Log(resourceManager.GetResourceAmount(ResourceManager.ResourceType.Iron));
             }
         }
         if (collision.gameObject.CompareTag("Coal") && isWaiting) {
@@ -107,7 +107,7 @@ public class CityController : MonoBehaviour
             if (resourceTimer > 2) {
                 resourceTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Coal, 5);
-                Debug.Log(resourceManager.GetResourceAmount(ResourceManager.ResourceType.Stone));
+                Debug.Log("total coal amount: " + resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal));
             }
         }
 
