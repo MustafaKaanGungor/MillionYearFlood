@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CityController : MonoBehaviour
@@ -18,6 +19,8 @@ public class CityController : MonoBehaviour
 
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private UIManager uiManager;
+
 
     private int tier = 1;
     private float ironTimer;
@@ -106,6 +109,7 @@ public class CityController : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision) {
         if(collision.gameObject.CompareTag("Iron") && isWaiting) {
             ironTimer += Time.deltaTime;
+            uiManager.ResourceGatheringBar(ironTimer/2);
             if(ironTimer > 2) {
                 ironTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Iron, 5);
@@ -115,6 +119,7 @@ public class CityController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Coal") && isWaiting) {
             coalTimer += Time.deltaTime;
+            uiManager.ResourceGatheringBar(coalTimer/2);
             if (coalTimer > 2) {
                 coalTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Coal, 5);
@@ -123,6 +128,7 @@ public class CityController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Wood") && isWaiting) {
             woodTimer += Time.deltaTime;
+            uiManager.ResourceGatheringBar(woodTimer/2);
             if (woodTimer > 2) {
                 woodTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Wood, 5);
@@ -131,11 +137,19 @@ public class CityController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Water") && isWaiting) {
             waterTimer += Time.deltaTime;
+            uiManager.ResourceGatheringBar(waterTimer/2);
             if (waterTimer > 2) {
                 waterTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Water, 5);
                 Debug.Log("total coal amount: " + resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal));
             }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        if(collision.gameObject.CompareTag("Iron") || collision.gameObject.CompareTag("Wood")
+            || collision.gameObject.CompareTag("Coal") || collision.gameObject.CompareTag("Water")) {
+            uiManager.SetResourceGatheringBarActive();
         }
     }
 }

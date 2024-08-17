@@ -20,6 +20,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Transform waveTransform;
     [SerializeField] private float mapborder;
 
+    [SerializeField] private Image resourceGatheringBar;
+
 
     private void OnEnable() {
         GameManager.OnPauseToggled += ToggleMainMenu;
@@ -64,6 +66,18 @@ public class UIManager : MonoBehaviour
         playerSlider.value = playerProgress;
         float waveProgress = (waveTransform.position.y + 17) / mapborder;
         waveSlider.value = waveProgress;
+    }
+
+    public void ResourceGatheringBar(float percentage) {
+        if(resourceGatheringBar.IsActive()) {
+            resourceGatheringBar.fillAmount = percentage;
+        } else {
+            resourceGatheringBar.gameObject.SetActive(true);
+        }
+    }
+
+    public void SetResourceGatheringBarActive() {
+        resourceGatheringBar.gameObject.SetActive(false);
     }
 
     
