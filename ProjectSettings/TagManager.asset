@@ -8,6 +8,7 @@ TagManager:
   - Iron
   - Wood
   - Coal
+  - Water
   layers:
   - Default
   - TransparentFX
