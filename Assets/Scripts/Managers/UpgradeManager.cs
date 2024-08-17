@@ -16,6 +16,7 @@ public class UpgradeManager : MonoBehaviour
     }
 
     public void Upgrade0() {
+
         resourceManager.RemoveResource(ResourceManager.ResourceType.Wood, 10);
         resourceManager.RemoveResource(ResourceManager.ResourceType.Iron, 10);
         resourceManager.RemoveResource(ResourceManager.ResourceType.Coal, 10);
@@ -26,4 +27,14 @@ public class UpgradeManager : MonoBehaviour
             item.SetActive(true);
         }
     }
+
+
+    public void UnlockSilo() {
+        resourceManager.RemoveResource(ResourceManager.ResourceType.Wood, 10);
+        resourceManager.RemoveResource(ResourceManager.ResourceType.Iron, 5);
+
+        //cityController.EnableBuilding(cityController.silo);
+
+    }
+
 }
