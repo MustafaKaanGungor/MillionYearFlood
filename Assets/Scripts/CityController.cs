@@ -14,6 +14,9 @@ public class CityController : MonoBehaviour
 
     public bool isWaiting = false;
 
+    [SerializeField] private ResourceManager resourceManager;
+    private float resourceTimer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +68,17 @@ public class CityController : MonoBehaviour
         if (collision.gameObject.CompareTag("Flood")) {
             // Game over
             GameManager.instance.GameOver();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision) {
+        if(collision.gameObject.CompareTag("Iron") && isWaiting) {
+            resourceTimer += Time.deltaTime;
+            if(resourceTimer > 2) {
+                resourceTimer = 0;
+                resourceManager.AddResource(ResourceManager.ResourceType.Stone, 5);
+                Debug.Log(resourceManager.GetResourceAmount(ResourceManager.ResourceType.Stone));
+            }
         }
     }
 }
