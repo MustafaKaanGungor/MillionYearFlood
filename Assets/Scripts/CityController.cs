@@ -8,7 +8,9 @@ public class CityController : MonoBehaviour
 
     public float speed = 1f;
     public float maxSpeed = 1f;
-    private float acceleration = 1f;
+
+    private float defMaxSpeed;
+    private float acceleration = 0.5f;
 
     public bool isWaiting = false;
 
@@ -16,13 +18,11 @@ public class CityController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        defMaxSpeed = maxSpeed;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (isWaiting) return;
+    void Update(){
 
         if(speed < maxSpeed) {
             Accelerate();
@@ -31,19 +31,17 @@ public class CityController : MonoBehaviour
             Decelerate();
         }
 
-        MoveUp();
-
         animator.speed = speed;
+
+        if (speed == 0) return;
+
+        MoveUp();
     }
 
     public void ToggleWait() {
         isWaiting = !isWaiting;
 
-        if (isWaiting) {
-            speed = 0f;
-            //acceleration = 1f;
-            animator.speed = 0f;
-        }
+        maxSpeed = isWaiting ? 0f : defMaxSpeed;
     }
 
     public void MoveUp() {
@@ -61,5 +59,12 @@ public class CityController : MonoBehaviour
 
         speed = speed < maxSpeed ? maxSpeed : speed;
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("Flood")) {
+            // Game over
+            GameManager.instance.GameOver();
+        }
     }
 }

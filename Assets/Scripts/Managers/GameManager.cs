@@ -9,10 +9,26 @@ public class GameManager : MonoBehaviour
     public delegate void OnPauseToggledDelegate(bool isPaused);
     public static event OnPauseToggledDelegate OnPauseToggled;
 
+    public delegate void OnGameOverDelegate();
+    public static event OnGameOverDelegate OnGameOver;
+
+    public static GameManager instance;
+
+    void Awake() {
+        Time.timeScale = 1f;
+
+
+        if (instance != null && instance != this)
+            Destroy(this.gameObject);
+        else
+            instance = this;
+
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -31,5 +47,12 @@ public class GameManager : MonoBehaviour
 
         // Invoke on pause toggled event
         OnPauseToggled?.Invoke(isPaused);
+    }
+
+    public void GameOver() {
+        Time.timeScale = 0;
+
+        OnGameOver?.Invoke();
+
     }
 }
