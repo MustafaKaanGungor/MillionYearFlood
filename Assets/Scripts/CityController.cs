@@ -15,6 +15,14 @@ public class CityController : MonoBehaviour
     private int coalConsumption = 1;
     private float coalConsumeDur = 1f;
     private float coalConsumeTime = 0f;
+
+    private int foodConsumption = 1;
+    private float foodConsumeDur = 3f;
+    private float foodConsumeTime = 0f;
+
+    private int waterConsumption = 1;
+    private float waterConsumeDur = 2f;
+    private float waterConsumeTime = 0f;
     public bool isWaiting = false;
 
     [SerializeField] private ResourceManager resourceManager;
@@ -59,6 +67,24 @@ public class CityController : MonoBehaviour
 
             UseCoal(amount);
         }
+
+        foodConsumeTime += Time.deltaTime;
+
+        if(foodConsumeTime >= foodConsumeDur) {
+            foodConsumeTime = 0f;
+            int foodAmount = (int)(foodConsumption * speed * 10) / 10;
+
+            UseFood(foodAmount);
+        }
+
+        waterConsumeTime += Time.deltaTime;
+
+        if(waterConsumeTime >= waterConsumeDur) {
+            waterConsumeTime = 0f;
+            int waterAmount = (int)(waterConsumption * speed * 10) / 10;
+
+            UseWater(waterAmount);
+        }
     }
 
     public void ToggleWait() {
@@ -85,13 +111,19 @@ public class CityController : MonoBehaviour
     }
 
     private void UseCoal(int amount) {
-        Debug.Log("coal consumed: " + amount);
         resourceManager.RemoveResource(ResourceManager.ResourceType.Coal, amount);
-        Debug.Log("coal remain: " + resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal));
 
         if (resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal) == 0 && !isWaiting) {
             ToggleWait();   
         }
+    }
+
+    private void UseFood(int foodAmount) {
+        resourceManager.RemoveResource(ResourceManager.ResourceType.Food, foodAmount);
+    }
+
+    private void UseWater(int waterAmount) {
+        resourceManager.RemoveResource(ResourceManager.ResourceType.Water, waterAmount);
     }
 
     public void UnlockSecondTier() {
