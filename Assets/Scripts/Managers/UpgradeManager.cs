@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class UpgradeManager : MonoBehaviour
 {
-    //public Upgrade[] allUpgrades;
-
     public GameObject[] secondTierUpgrades;
 
     [SerializeField] private ResourceManager resourceManager;
@@ -15,13 +13,6 @@ public class UpgradeManager : MonoBehaviour
     void Start()
     {
         
-    }
-
-
-    public void UpdateLockedUpgrades() {
-       /* foreach (var item in allUpgrades) {
-
-        }*/
     }
 
     public void Upgrade0() {

@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class _Resource {
+
+    public ResourceManager.ResourceType type;
+    public int cost;
+
+}
+
 public class ResourceManager : MonoBehaviour
 {
-
     public enum ResourceType { Wood, Coal, Iron, Water }
     private Dictionary<ResourceType, int> resources = new Dictionary<ResourceType, int>();
     private Dictionary<ResourceType, int> resourcesCapacity = new Dictionary<ResourceType, int>();
 
     public UIManager uiManager;
 
-    public delegate void OnResourceChangedDelegate();
+    public delegate void OnResourceChangedDelegate(Dictionary<ResourceType, int> resources);
     public static event OnResourceChangedDelegate OnResourceChanged;
 
     void Start()
@@ -38,7 +44,7 @@ public class ResourceManager : MonoBehaviour
     public void AddResource(ResourceType type, int amount)
     {
         resources[type] += amount;
-        OnResourceChanged?.Invoke();
+        OnResourceChanged?.Invoke(resources);
 
     }
 
@@ -47,7 +53,7 @@ public class ResourceManager : MonoBehaviour
         {
             resources[type] -= amount;
 
-            OnResourceChanged?.Invoke();
+            OnResourceChanged?.Invoke(resources);
 
             return true;
         }
