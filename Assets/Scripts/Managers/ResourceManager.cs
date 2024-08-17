@@ -11,7 +11,7 @@ public class _Resource {
 
 public class ResourceManager : MonoBehaviour
 {
-    public enum ResourceType { Wood, Coal, Iron, Water }
+    public enum ResourceType { Wood, Coal, Iron, Water, Humans}
     private Dictionary<ResourceType, int> resources = new Dictionary<ResourceType, int>();
     private Dictionary<ResourceType, int> resourcesCapacity = new Dictionary<ResourceType, int>();
 
@@ -27,13 +27,18 @@ public class ResourceManager : MonoBehaviour
             resources[type] = 0;
         }
 
+        resourcesCapacity[ResourceType.Coal] = 50;
+        resourcesCapacity[ResourceType.Iron] = 50;
         resourcesCapacity[ResourceType.Wood] = 50;
         resourcesCapacity[ResourceType.Water] = 50;
+        resourcesCapacity[ResourceType.Humans] = 50;
+
 
         AddResource(ResourceType.Coal, 20);
         AddResource(ResourceType.Iron, 20);
         AddResource(ResourceType.Wood, 20);
         AddResource(ResourceType.Water, 20);
+        AddResource(ResourceType.Humans, 5);
     }
 
     private void Update() 
