@@ -19,7 +19,11 @@ public class CityController : MonoBehaviour
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private GameManager gameManager;
 
-    private float resourceTimer;
+    private float ironTimer;
+    private float coalTimer;
+    private float woodTimer;
+    private float waterTimer;
+
 
 
     // Start is called before the first frame update
@@ -95,21 +99,21 @@ public class CityController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision) {
         if(collision.gameObject.CompareTag("Iron") && isWaiting) {
-            resourceTimer += Time.deltaTime;
-            if(resourceTimer > 2) {
-                resourceTimer = 0;
+            ironTimer += Time.deltaTime;
+            if(ironTimer > 2) {
+                ironTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Iron, 5);
                 Debug.Log(resourceManager.GetResourceAmount(ResourceManager.ResourceType.Iron));
             }
         }
+
         if (collision.gameObject.CompareTag("Coal") && isWaiting) {
-            resourceTimer += Time.deltaTime;
-            if (resourceTimer > 2) {
-                resourceTimer = 0;
+            coalTimer += Time.deltaTime;
+            if (coalTimer > 2) {
+                coalTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Coal, 5);
                 Debug.Log("total coal amount: " + resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal));
             }
         }
-
     }
 }
