@@ -40,4 +40,12 @@ public class UpgradeManager : MonoBehaviour
 
     }
 
+    public void UnlockGreenHouse() {
+        resourceManager.RemoveResource(ResourceManager.ResourceType.Wood, 10);
+        resourceManager.RemoveResource(ResourceManager.ResourceType.Water, 50);
+
+        cityController.EnableBuilding(cityController.greenHouse);
+
+    }
+
 }
