@@ -82,9 +82,14 @@ public class ResourceManager : MonoBehaviour
 
     public void AddResource(ResourceType type, int amount)
     {
-        resources[type] += amount;
-        OnResourceChanged?.Invoke(resources, resourcesCapacity);
-
+        if(amount > resourcesCapacity[type] - resources[type]) {
+            resources[type] = resourcesCapacity[type];
+            OnResourceChanged?.Invoke(resources, resourcesCapacity);
+        } else {
+            resources[type] += amount;
+            OnResourceChanged?.Invoke(resources, resourcesCapacity);
+        }
+    
     }
 
     public bool RemoveResource(ResourceType type, int amount){
@@ -98,6 +103,7 @@ public class ResourceManager : MonoBehaviour
         }
         else
         {
+            resources[type] = 0;
             return false;
         }
     }
