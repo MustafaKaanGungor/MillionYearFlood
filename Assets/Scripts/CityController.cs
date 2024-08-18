@@ -36,6 +36,8 @@ public class CityController : MonoBehaviour
     private float coalTimer;
     private float woodTimer;
     private float waterTimer;
+    private float humanTimer;
+
 
     Rigidbody2D rigidbody;
 
@@ -166,6 +168,7 @@ public class CityController : MonoBehaviour
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
+
         if(collision.gameObject.CompareTag("Iron") && isWaiting) {
             ironTimer += Time.deltaTime;
             uiManager.ResourceGatheringBar(ironTimer/2);
@@ -182,7 +185,6 @@ public class CityController : MonoBehaviour
             if (coalTimer > 2) {
                 coalTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Coal, 5);
-                Debug.Log("total coal amount: " + resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal));
             }
         }
 
@@ -192,7 +194,6 @@ public class CityController : MonoBehaviour
             if (woodTimer > 2) {
                 woodTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Wood, 5);
-                Debug.Log("total coal amount: " + resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal));
             }
         }
         if (collision.gameObject.CompareTag("Water") && isWaiting) {
@@ -201,7 +202,17 @@ public class CityController : MonoBehaviour
             if (waterTimer > 2) {
                 waterTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Water, 5);
-                Debug.Log("total coal amount: " + resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal));
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Human") && isWaiting) {
+            humanTimer += Time.deltaTime;
+            uiManager.ResourceGatheringBar(humanTimer / 2);
+            if (humanTimer > 2) {
+                humanTimer = 0;
+                resourceManager.AddResource(ResourceManager.ResourceType.Humans, 10);
+
+                Destroy(collision.gameObject);
             }
         }
     }

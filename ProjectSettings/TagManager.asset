@@ -10,6 +10,7 @@ TagManager:
   - Coal
   - Water
   - End
+  - Human
   layers:
   - Default
   - TransparentFX
