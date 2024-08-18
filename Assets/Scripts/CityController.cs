@@ -8,6 +8,8 @@ public class CityController : MonoBehaviour
     public Animator animator;
 
     public GameObject silo;
+    public GameObject greenHouse;
+
 
     public float speed = 1f;
     public float maxSpeed = 1f;
@@ -21,6 +23,8 @@ public class CityController : MonoBehaviour
     private int foodConsumption = 1;
     private float foodConsumeDur = 3f;
     private float foodConsumeTime = 0f;
+    private float foodProduceTime = 0f;
+
 
     private int waterConsumption = 1;
     private float waterConsumeDur = 2f;
@@ -64,6 +68,32 @@ public class CityController : MonoBehaviour
 
         animator.speed = speed;
 
+        foodConsumeTime += Time.deltaTime;
+
+        if (foodConsumeTime >= foodConsumeDur) {
+            foodConsumeTime = 0f;
+            int foodAmount = (int)(foodConsumption * 10) / 10;
+
+            UseFood(foodAmount);
+        }
+
+        waterConsumeTime += Time.deltaTime;
+
+        if (waterConsumeTime >= waterConsumeDur) {
+            waterConsumeTime = 0f;
+            int waterAmount = (int)(waterConsumption * 10) / 10;
+
+            UseWater(waterAmount);
+        }
+
+        if (greenHouse.activeSelf) {
+            foodProduceTime += Time.deltaTime;
+            if(foodProduceTime >= 5f) {
+                foodProduceTime = 0;
+                resourceManager.AddResource(ResourceManager.ResourceType.Food, 10);
+            }
+        }
+
         if (speed == 0) return;
 
         MoveUp();
@@ -76,26 +106,6 @@ public class CityController : MonoBehaviour
 
             UseCoal(amount);
         }
-
-        foodConsumeTime += Time.deltaTime;
-
-        if(foodConsumeTime >= foodConsumeDur) {
-            foodConsumeTime = 0f;
-            int foodAmount = (int)(foodConsumption * 10) / 10;
-
-            UseFood(foodAmount);
-        }
-
-        waterConsumeTime += Time.deltaTime;
-
-        if(waterConsumeTime >= waterConsumeDur) {
-            waterConsumeTime = 0f;
-            int waterAmount = (int)(waterConsumption * 10) / 10;
-
-            UseWater(waterAmount);
-        }
-
-
     }
 
     public void ToggleWait() {
