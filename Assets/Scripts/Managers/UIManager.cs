@@ -184,11 +184,18 @@ public class UIManager : MonoBehaviour
             {
                 ResourceTexts[index].text = resources[type].ToString();
                 ResourceCapacityTexts[index].text = resourceCapacity[type].ToString();
+                
+                int currentResource = resources[type];
+                int maxCapacity = resourceCapacity[type];
+                float ratio = (float)currentResource / maxCapacity;
+                Color color = Color.Lerp(Color.red, Color.white, ratio);
+                ResourceTexts[index].color = color;
             }
             else
             {
                 ResourceTexts[index].text = "0";
                 ResourceCapacityTexts[index].text = "0";
+                ResourceTexts[index].color = Color.red;
             }
         }
     }
