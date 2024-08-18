@@ -97,7 +97,7 @@ public class ResourceManager : MonoBehaviour
     }
 
     public void AddResourceCapacity(ResourceType type, int amount) {
-        resources[type] += amount;
+        resourcesCapacity[type] += amount;
     }
 
     public int GetResourceCapacity(ResourceType type) {
