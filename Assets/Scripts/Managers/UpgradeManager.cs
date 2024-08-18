@@ -33,7 +33,10 @@ public class UpgradeManager : MonoBehaviour
         resourceManager.RemoveResource(ResourceManager.ResourceType.Wood, 10);
         resourceManager.RemoveResource(ResourceManager.ResourceType.Iron, 5);
 
-        //cityController.EnableBuilding(cityController.silo);
+        resourceManager.AddResourceCapacity(ResourceManager.ResourceType.Water, 50);
+        resourceManager.AddResourceCapacity(ResourceManager.ResourceType.Food, 50);
+
+        cityController.EnableBuilding(cityController.silo);
 
     }
 

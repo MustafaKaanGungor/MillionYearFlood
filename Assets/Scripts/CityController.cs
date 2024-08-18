@@ -7,6 +7,8 @@ public class CityController : MonoBehaviour
 {
     public Animator animator;
 
+    public GameObject silo;
+
     public float speed = 1f;
     public float maxSpeed = 1f;
 
@@ -148,6 +150,10 @@ public class CityController : MonoBehaviour
     public void UnlockSecondTier() {
         animator.SetBool("isTier2", true);
         tier = 2;
+        transform.localScale = Vector3.one * 1.2f;
+    }
+    public void EnableBuilding(GameObject obj) {
+        obj.SetActive(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
