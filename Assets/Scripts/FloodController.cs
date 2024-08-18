@@ -6,13 +6,7 @@ public class FloodController : MonoBehaviour
 {
     public float speed = 1f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         MoveUp();
@@ -20,6 +14,14 @@ public class FloodController : MonoBehaviour
 
     public void MoveUp() {
         transform.position += Vector3.up * Time.deltaTime * speed;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("End") && speed > 0) {
+
+            speed -= (float)(Time.deltaTime * 0.5);
+            
+        }
     }
 
 
