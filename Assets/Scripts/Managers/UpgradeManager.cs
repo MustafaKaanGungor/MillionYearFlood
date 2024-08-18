@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class UpgradeManager : MonoBehaviour
 {
     public GameObject[] secondTierUpgrades;
+
+    public Slider engineSlider;
 
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private CityController cityController;
@@ -53,7 +57,23 @@ public class UpgradeManager : MonoBehaviour
         if (cityController.isWaiting)
             cityController.ToggleWait();
 
-        cityController.OverHeatEngines(cityController.maxSpeed * 3, 3f);
+        cityController.OverHeatEngines(cityController.curEngine.maxSpeed * 3, 3f);
+    }
+
+    public void EngineUpgrade1() {
+        resourceManager.RemoveResource(ResourceManager.ResourceType.Iron, 30);
+        resourceManager.RemoveResource(ResourceManager.ResourceType.Wood, 10);
+
+        engineSlider.maxValue = 2;
+        cityController.ChangeEngine(2);
+    }
+
+    public void EngineUpgrade2() {
+        resourceManager.RemoveResource(ResourceManager.ResourceType.Iron, 60);
+        resourceManager.RemoveResource(ResourceManager.ResourceType.Wood, 20);
+        engineSlider.maxValue = 3;
+
+        cityController.ChangeEngine(3);
     }
 
 }

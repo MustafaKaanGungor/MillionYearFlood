@@ -2,21 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
 public class CityController : MonoBehaviour
 {
+    [System.Serializable]
+    public struct EngineTier {
+        public int tier;
+        public float maxSpeed;
+        public float defMaxSpeed;
+        public float engineEfficiencyMult; // higher value will consume more coal 
+        public EngineTier(int tier, float maxSpeed, float engineEfficiencyMult) {
+            this.tier = tier;
+            this.maxSpeed = maxSpeed;
+            this.engineEfficiencyMult = engineEfficiencyMult;
+            this.defMaxSpeed = maxSpeed;
+        }
+    }
+
     public Animator animator;
 
     public GameObject silo;
     public GameObject greenHouse;
 
+    public EngineTier[] engines;
+    public EngineTier curEngine; //[HideInInspector] 
 
     public float speed = 1f;
-    public float maxSpeed = 1f;
+    //public float maxSpeed = 1f;
 
-    private float defMaxSpeed;
+    //private float defMaxSpeed;
     private float acceleration = 0.5f;
-    private int coalConsumption = 1;
+    //private int coalConsumption = 1;
     private float coalConsumeDur = 1f;
     private float coalConsumeTime = 0f;
 
@@ -33,7 +48,6 @@ public class CityController : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private UIManager uiManager;
 
-
     private int tier = 1;
     private float ironTimer;
     private float coalTimer;
@@ -48,8 +62,10 @@ public class CityController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        defMaxSpeed = maxSpeed;
+        //defMaxSpeed = curEngine.maxSpeed;
         rigidbody = GetComponent<Rigidbody2D>();
+
+        curEngine = engines[1];
     }
 
     // Update is called once per frame
@@ -58,10 +74,10 @@ public class CityController : MonoBehaviour
             rigidbody.WakeUp();
         }
 
-        if (speed < maxSpeed) {
+        if (speed < curEngine.maxSpeed) {
             Accelerate();
         }
-        else if(speed > maxSpeed) {
+        else if(speed > curEngine.maxSpeed) {
             Decelerate();
         }
 
@@ -91,12 +107,12 @@ public class CityController : MonoBehaviour
         MoveUp();
 
         coalConsumeTime += Time.deltaTime;
+        coalConsumeDur = 2 / speed / curEngine.engineEfficiencyMult;
 
         if(coalConsumeTime >= coalConsumeDur) {
             coalConsumeTime = 0f;
-            int amount = (int)(coalConsumption * speed * 10) / 10;
-
-            UseCoal(amount);
+            //int amount = (int)(coalConsumption * speed * 10) / 10;
+            UseCoal(1);
         }
     }
 
@@ -105,7 +121,7 @@ public class CityController : MonoBehaviour
 
         isWaiting = !isWaiting;
 
-        maxSpeed = isWaiting ? 0f : defMaxSpeed;
+        curEngine.maxSpeed = isWaiting ? 0f : curEngine.defMaxSpeed;
     }
 
     public void MoveUp() {
@@ -115,13 +131,13 @@ public class CityController : MonoBehaviour
     public void Accelerate() {
         speed += Time.deltaTime * acceleration;
 
-        speed = speed > maxSpeed ? maxSpeed : speed;
+        speed = speed > curEngine.maxSpeed ? curEngine.maxSpeed : speed;
     }
 
     public void Decelerate() {
         speed -= Time.deltaTime * acceleration;
 
-        speed = speed < maxSpeed ? maxSpeed : speed;
+        speed = speed < curEngine.maxSpeed ? curEngine.maxSpeed : speed;
 
     }
 
@@ -131,9 +147,6 @@ public class CityController : MonoBehaviour
         if (resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal) == 0 && !isWaiting) {
             ToggleWait();   
         }
-    }
-
-    private void UseFood(int foodAmount) {
     }
 
     private void UseWater(int waterAmount) {
@@ -149,6 +162,16 @@ public class CityController : MonoBehaviour
         obj.SetActive(true);
     }
 
+    public void ChangeEngine(System.Single index) {
+        float prevSpeed = curEngine.maxSpeed;
+
+        curEngine = engines[(int)index];
+
+        if (!isWaiting) return;
+
+        curEngine.maxSpeed = prevSpeed;
+    }
+
     public void OverHeatEngines(float maxSpeed, float dur) {
 
         StartCoroutine(_OverHeatEngines(maxSpeed, dur));
@@ -157,15 +180,15 @@ public class CityController : MonoBehaviour
     private IEnumerator _OverHeatEngines(float maxSpeed, float dur) {
         canWait = false;
 
-        float tempMaxSpeed = this.maxSpeed;
+        float tempMaxSpeed = this.curEngine.maxSpeed;
         float defAcceleration = acceleration;
 
-        this.maxSpeed = maxSpeed;
+        this.curEngine.maxSpeed = maxSpeed;
         acceleration *= 3;
 
         yield return new WaitForSeconds(dur);
 
-        this.maxSpeed = tempMaxSpeed;
+        this.curEngine.maxSpeed = tempMaxSpeed;
 
         acceleration = defAcceleration;
         canWait = true;
@@ -173,7 +196,7 @@ public class CityController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("End")) {
-            maxSpeed /= 4f;
+            curEngine.maxSpeed /= 4f;
         }
 
         if (collision.gameObject.CompareTag("Flood")) {
@@ -181,7 +204,6 @@ public class CityController : MonoBehaviour
             gameManager.GameOver();
             return;
         }
-
 
     }
 
