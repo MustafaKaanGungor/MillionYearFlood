@@ -2,12 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class _Resource {
 
-    public ResourceManager.ResourceType type;
-    public int cost;
-
-}
 
 public class ResourceManager : MonoBehaviour
 {
@@ -21,6 +16,8 @@ public class ResourceManager : MonoBehaviour
 
     public delegate void OnResourceChangedDelegate(Dictionary<ResourceType, int> resources);
     public static event OnResourceChangedDelegate OnResourceChanged;
+
+    private float Humantimer;
 
     void Start()
     {
@@ -41,13 +38,25 @@ public class ResourceManager : MonoBehaviour
         AddResource(ResourceType.Iron, 20);
         AddResource(ResourceType.Wood, 20);
         AddResource(ResourceType.Water, 20);
-        AddResource(ResourceType.Food, 20);
-        AddResource(ResourceType.Humans, 5);
+        AddResource(ResourceType.Food, 8);
+        AddResource(ResourceType.Humans, 50);
     }
 
     private void Update() 
     {
+        int HumanDiff =  GetResourceAmount(ResourceType.Food) - GetResourceAmount(ResourceType.Humans); 
         uiManager.UpdateResourceUI(resources);
+        if(HumanDiff / 5 < 0 )
+        {
+            Humantimer += Time.deltaTime;
+            
+            if(Humantimer > 5)
+            {
+                RemoveResource(ResourceType.Humans, -HumanDiff / 5);
+                Humantimer=0;
+            }
+            
+        }
     }
 
     public void AddResource(ResourceType type, int amount)
