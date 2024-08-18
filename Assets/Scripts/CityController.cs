@@ -41,6 +41,7 @@ public class CityController : MonoBehaviour
     private float coalTimer;
     private float woodTimer;
     private float waterTimer;
+    private float foodTimer;
     private float humanTimer;
 
 
@@ -174,7 +175,7 @@ public class CityController : MonoBehaviour
 
         if(collision.gameObject.CompareTag("Iron") && isWaiting) {
             ironTimer += Time.deltaTime;
-            uiManager.ResourceGatheringBar(ironTimer/2);
+            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Iron, ironTimer/2);
             if(ironTimer > 2) {
                 ironTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Iron, 5);
@@ -184,7 +185,7 @@ public class CityController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Coal") && isWaiting) {
             coalTimer += Time.deltaTime;
-            uiManager.ResourceGatheringBar(coalTimer/2);
+            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Coal, coalTimer/2);
             if (coalTimer > 2) {
                 coalTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Coal, 5);
@@ -193,7 +194,7 @@ public class CityController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Wood") && isWaiting) {
             woodTimer += Time.deltaTime;
-            uiManager.ResourceGatheringBar(woodTimer/2);
+            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Wood, woodTimer/2);
             if (woodTimer > 2) {
                 woodTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Wood, 5);
@@ -201,16 +202,23 @@ public class CityController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Water") && isWaiting) {
             waterTimer += Time.deltaTime;
-            uiManager.ResourceGatheringBar(waterTimer/2);
+            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Water, waterTimer/2);
             if (waterTimer > 2) {
                 waterTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Water, 5);
             }
         }
-
+        if (collision.gameObject.CompareTag("Food") && isWaiting) {
+            foodTimer += Time.deltaTime;
+            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Food, foodTimer/2);
+            if (foodTimer > 2) {
+                foodTimer = 0;
+                resourceManager.AddResource(ResourceManager.ResourceType.Food, 5);
+            }
+        }
         if (collision.gameObject.CompareTag("Human") && isWaiting) {
             humanTimer += Time.deltaTime;
-            uiManager.ResourceGatheringBar(humanTimer / 2);
+            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Humans, humanTimer / 2);
             if (humanTimer > 2) {
                 humanTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Humans, 10);
@@ -222,10 +230,25 @@ public class CityController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision) {
 
-        if (collision.gameObject.CompareTag("Iron") || collision.gameObject.CompareTag("Wood")
-            || collision.gameObject.CompareTag("Coal") || collision.gameObject.CompareTag("Water")) {
-            uiManager.SetResourceGatheringBarActive();
+        if (collision.gameObject.CompareTag("Iron")) {
+            uiManager.SetResourceGatheringBarActive(ResourceManager.ResourceType.Iron);
         }
+        if(collision.gameObject.CompareTag("Wood")) {
+            uiManager.SetResourceGatheringBarActive(ResourceManager.ResourceType.Wood);
+        }
+        if(collision.gameObject.CompareTag("Coal")) {
+            uiManager.SetResourceGatheringBarActive(ResourceManager.ResourceType.Coal);
+        }
+        if(collision.gameObject.CompareTag("Water")) {
+            uiManager.SetResourceGatheringBarActive(ResourceManager.ResourceType.Water);
+        }
+        if(collision.gameObject.CompareTag("Food")) {
+            uiManager.SetResourceGatheringBarActive(ResourceManager.ResourceType.Food);
+        }
+        if(collision.gameObject.CompareTag("Human")) {
+            uiManager.SetResourceGatheringBarActive(ResourceManager.ResourceType.Humans);
+        }
+
 
         if (collision.gameObject.CompareTag("End")) {
             gameManager.Victory();

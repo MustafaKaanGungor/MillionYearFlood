@@ -25,7 +25,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Transform waveTransform;
     [SerializeField] private Transform mapborder;
 
-    [SerializeField] private Image resourceGatheringBar;
+    [SerializeField] private Image[] resourceGatheringBar;
+
 
 
     private void OnEnable() {
@@ -84,17 +85,83 @@ public class UIManager : MonoBehaviour
         waveSlider.value = waveProgress;
     }
 
-    public void ResourceGatheringBar(float percentage) {
-        if(resourceGatheringBar.IsActive()) {
-            resourceGatheringBar.fillAmount = percentage;
-        } else {
-            resourceGatheringBar.gameObject.SetActive(true);
+    public void ResourceGatheringBar(ResourceManager.ResourceType resource,float percentage) {
+        switch (resource)
+        {
+            case ResourceManager.ResourceType.Iron:
+                if(resourceGatheringBar[0].IsActive()) {
+                    resourceGatheringBar[0].fillAmount = percentage;
+                } else {
+                resourceGatheringBar[0].gameObject.SetActive(true);
+                }
+            break;
+            case ResourceManager.ResourceType.Wood:
+                if(resourceGatheringBar[1].IsActive()) {
+                    resourceGatheringBar[1].fillAmount = percentage;
+                } else {
+                resourceGatheringBar[1].gameObject.SetActive(true);
+                }
+            break;
+            case ResourceManager.ResourceType.Coal:
+                if(resourceGatheringBar[2].IsActive()) {
+                    resourceGatheringBar[2].fillAmount = percentage;
+                } else {
+                resourceGatheringBar[2].gameObject.SetActive(true);
+                }
+            break;
+            case ResourceManager.ResourceType.Water:
+                if(resourceGatheringBar[3].IsActive()) {
+                    resourceGatheringBar[3].fillAmount = percentage;
+                } else {
+                resourceGatheringBar[3].gameObject.SetActive(true);
+                }
+            break;
+            case ResourceManager.ResourceType.Food:
+                if(resourceGatheringBar[4].IsActive()) {
+                    resourceGatheringBar[4].fillAmount = percentage;
+                } else {
+                resourceGatheringBar[4].gameObject.SetActive(true);
+                }
+            break;
+            case ResourceManager.ResourceType.Humans:
+                if(resourceGatheringBar[5].IsActive()) {
+                    resourceGatheringBar[5].fillAmount = percentage;
+                } else {
+                resourceGatheringBar[5].gameObject.SetActive(true);
+                }
+            break; 
         }
+
     }
 
-    public void SetResourceGatheringBarActive() {
-        ResourceGatheringBar(0f);
-        resourceGatheringBar.gameObject.SetActive(false);
+    public void SetResourceGatheringBarActive(ResourceManager.ResourceType resource) {
+        switch (resource)
+        {
+            case ResourceManager.ResourceType.Iron:
+            ResourceGatheringBar(ResourceManager.ResourceType.Iron, 0f);
+            resourceGatheringBar[0].gameObject.SetActive(false);
+            break;
+            case ResourceManager.ResourceType.Wood:
+            ResourceGatheringBar(ResourceManager.ResourceType.Wood, 0f);
+            resourceGatheringBar[0].gameObject.SetActive(false);
+            break;
+            case ResourceManager.ResourceType.Coal:
+            ResourceGatheringBar(ResourceManager.ResourceType.Coal, 0f);
+            resourceGatheringBar[0].gameObject.SetActive(false);
+            break;
+            case ResourceManager.ResourceType.Water:
+            ResourceGatheringBar(ResourceManager.ResourceType.Water, 0f);
+            resourceGatheringBar[0].gameObject.SetActive(false);
+            break;
+            case ResourceManager.ResourceType.Food:
+            ResourceGatheringBar(ResourceManager.ResourceType.Food, 0f);
+            resourceGatheringBar[0].gameObject.SetActive(false);
+            break;
+            case ResourceManager.ResourceType.Humans:
+            ResourceGatheringBar(ResourceManager.ResourceType.Humans, 0f);
+            resourceGatheringBar[0].gameObject.SetActive(false);
+            break;
+        }
     }
 
     
