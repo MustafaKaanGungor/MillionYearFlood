@@ -11,8 +11,13 @@ public class UIManager : MonoBehaviour
     public GameObject gameplayPanel;
     public GameObject mainMenu;
     public GameObject gameOverPanel;
+    public GameObject victoryPanel;
+
+    public TextMeshProUGUI victoryText;
 
     public TMP_Text[] ResourceTexts;
+
+    [SerializeField] private ResourceManager resourceManager;
 
     [SerializeField] private Slider playerSlider;
     [SerializeField] private Slider waveSlider;
@@ -27,12 +32,16 @@ public class UIManager : MonoBehaviour
         GameManager.OnPauseToggled += ToggleMainMenu;
         GameManager.OnPauseToggled += ToggleGameplayPanel;
         GameManager.OnGameOver += ToggleGameOverPanel;
+        GameManager.OnVictory += ToggleVictoryPanel;
+
     }
 
     private void OnDisable() {
         GameManager.OnPauseToggled -= ToggleMainMenu;
         GameManager.OnPauseToggled -= ToggleGameplayPanel;
         GameManager.OnGameOver -= ToggleGameOverPanel;
+        GameManager.OnVictory -= ToggleVictoryPanel;
+
     }
 
     public void ToggleGameplayPanel(bool active) {
@@ -44,8 +53,15 @@ public class UIManager : MonoBehaviour
     }
 
     public void ToggleGameOverPanel() {
-        ToggleGameplayPanel(false);
+        ToggleGameplayPanel(true);
         gameOverPanel.SetActive(true);
+    }
+
+    public void ToggleVictoryPanel() {
+        ToggleGameplayPanel(true);
+        int humanCount = resourceManager.GetResourceAmount(ResourceManager.ResourceType.Humans);
+        victoryText.text = string.Format(victoryText.text, humanCount, resourceManager.totalHumanCount - humanCount);
+        victoryPanel.SetActive(true);
     }
 
     public void QuitGame() {

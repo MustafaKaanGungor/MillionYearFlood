@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public delegate void OnGameOverDelegate();
     public static event OnGameOverDelegate OnGameOver;
 
+    public delegate void OnVictoryDelegate();
+    public static event OnVictoryDelegate OnVictory;
+
 
     void Awake() {
         Time.timeScale = 1f;
@@ -42,9 +45,16 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver() {
-        Time.timeScale = 0;
 
         OnGameOver?.Invoke();
+        Time.timeScale = 0;
+
+    }
+
+    public void Victory() {
+
+        OnVictory?.Invoke();
+        Time.timeScale = 0;
 
     }
 }

@@ -17,6 +17,8 @@ public class ResourceManager : MonoBehaviour
 
     public UIManager uiManager;
 
+    public int totalHumanCount = 115;
+
     public delegate void OnResourceChangedDelegate(Dictionary<ResourceType, int> resources);
     public static event OnResourceChangedDelegate OnResourceChanged;
 
@@ -35,7 +37,7 @@ public class ResourceManager : MonoBehaviour
         resourcesCapacity[ResourceType.Humans] = 50;
 
 
-        AddResource(ResourceType.Coal, 20);
+        AddResource(ResourceType.Coal, 40);
         AddResource(ResourceType.Iron, 20);
         AddResource(ResourceType.Wood, 20);
         AddResource(ResourceType.Water, 20);
