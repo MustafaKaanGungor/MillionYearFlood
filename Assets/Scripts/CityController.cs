@@ -26,7 +26,6 @@ public class CityController : MonoBehaviour
     private float waterConsumeDur = 2f;
     private float waterConsumeTime = 0f;
     public bool isWaiting = false;
-    private bool isCollectingCoal = false;
 
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private GameManager gameManager;
@@ -55,15 +54,6 @@ public class CityController : MonoBehaviour
         if (rigidbody.IsSleeping()) {
             rigidbody.WakeUp();
         }
-        /*if (isCollectingCoal && isWaiting) {
-            coalTimer += Time.deltaTime;
-            //uiManager.ResourceGatheringBar(coalTimer/2);
-            if (coalTimer > 2) {
-                coalTimer = 0;
-                resourceManager.AddResource(ResourceManager.ResourceType.Coal, 5);
-                Debug.Log("total coal amount: " + resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal));
-            }
-        }*/
 
         if (speed < maxSpeed) {
             Accelerate();
@@ -221,9 +211,6 @@ public class CityController : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Coal") && isWaiting) {
-            isCollectingCoal = false;
-        }
 
         if (collision.gameObject.CompareTag("Iron") || collision.gameObject.CompareTag("Wood")
             || collision.gameObject.CompareTag("Coal") || collision.gameObject.CompareTag("Water")) {
