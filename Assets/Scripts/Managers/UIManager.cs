@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI victoryText;
 
     public TMP_Text[] ResourceTexts;
+    public TMP_Text[] ResourceCapacityTexts;
+
 
     [SerializeField] private ResourceManager resourceManager;
 
@@ -35,6 +37,8 @@ public class UIManager : MonoBehaviour
         GameManager.OnGameOver += ToggleGameOverPanel;
         GameManager.OnVictory += ToggleVictoryPanel;
 
+        ResourceManager.OnResourceChanged += UpdateResourceUI;
+
     }
 
     private void OnDisable() {
@@ -43,6 +47,7 @@ public class UIManager : MonoBehaviour
         GameManager.OnGameOver -= ToggleGameOverPanel;
         GameManager.OnVictory -= ToggleVictoryPanel;
 
+        ResourceManager.OnResourceChanged -= UpdateResourceUI;
     }
 
     public void ToggleGameplayPanel(bool active) {
@@ -168,7 +173,7 @@ public class UIManager : MonoBehaviour
 
     
 
-    public void UpdateResourceUI(Dictionary<ResourceManager.ResourceType, int> resources)
+    public void UpdateResourceUI(Dictionary<ResourceManager.ResourceType, int> resources, Dictionary<ResourceManager.ResourceType, int> resourceCapacity)
     {
         foreach (ResourceManager.ResourceType type in System.Enum.GetValues(typeof(ResourceManager.ResourceType)))
     {
@@ -178,10 +183,12 @@ public class UIManager : MonoBehaviour
             if (resources.ContainsKey(type))
             {
                 ResourceTexts[index].text = resources[type].ToString();
+                ResourceCapacityTexts[index].text = resourceCapacity[type].ToString();
             }
             else
             {
                 ResourceTexts[index].text = "0";
+                ResourceCapacityTexts[index].text = "0";
             }
         }
     }

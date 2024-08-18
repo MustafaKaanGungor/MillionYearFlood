@@ -11804,6 +11804,13 @@ MonoBehaviour:
   - {fileID: 1204971925}
   - {fileID: 1617359544}
   - {fileID: 1196632918}
+  ResourceCapacityTexts:
+  - {fileID: 2118542967}
+  - {fileID: 703536126}
+  - {fileID: 750537520}
+  - {fileID: 1441837945}
+  - {fileID: 2050828251}
+  - {fileID: 1636099332}
   resourceManager: {fileID: 294604730}
   playerSlider: {fileID: 1486766741}
   waveSlider: {fileID: 172705587}

@@ -25,7 +25,7 @@ public class Upgrade : MonoBehaviour
 
     }
 
-    private void UpdateStatus(Dictionary<ResourceManager.ResourceType, int> resources) {
+    private void UpdateStatus(Dictionary<ResourceManager.ResourceType, int> resources, Dictionary<ResourceManager.ResourceType, int> resourceCapacity) {
         foreach (var item in cost) {
 
             if (item.cost > resources[item.type]) {

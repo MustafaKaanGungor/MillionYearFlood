@@ -16,7 +16,7 @@ public class ResourceManager : MonoBehaviour
 
     [SerializeField] private GameManager gameManager;
 
-    public delegate void OnResourceChangedDelegate(Dictionary<ResourceType, int> resources);
+    public delegate void OnResourceChangedDelegate(Dictionary<ResourceType, int> resources, Dictionary<ResourceType, int> resourceCapacity);
     public static event OnResourceChangedDelegate OnResourceChanged;
 
     private float Humantimer;
@@ -48,7 +48,6 @@ public class ResourceManager : MonoBehaviour
     {
         int food = GetResourceAmount(ResourceType.Food);
         int HumanDiff =  food - GetResourceAmount(ResourceType.Humans); 
-        uiManager.UpdateResourceUI(resources);
         if(HumanDiff / 5 < 0 || food ==0)
         {
             Humantimer += Time.deltaTime;
@@ -72,7 +71,7 @@ public class ResourceManager : MonoBehaviour
     public void AddResource(ResourceType type, int amount)
     {
         resources[type] += amount;
-        OnResourceChanged?.Invoke(resources);
+        OnResourceChanged?.Invoke(resources, resourcesCapacity);
 
     }
 
@@ -81,7 +80,7 @@ public class ResourceManager : MonoBehaviour
         {
             resources[type] -= amount;
 
-            OnResourceChanged?.Invoke(resources);
+            OnResourceChanged?.Invoke(resources, resourcesCapacity);
 
             return true;
         }
@@ -98,6 +97,7 @@ public class ResourceManager : MonoBehaviour
 
     public void AddResourceCapacity(ResourceType type, int amount) {
         resourcesCapacity[type] += amount;
+        OnResourceChanged?.Invoke(resources, resourcesCapacity);
     }
 
     public int GetResourceCapacity(ResourceType type) {
