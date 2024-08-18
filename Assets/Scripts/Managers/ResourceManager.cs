@@ -36,7 +36,7 @@ public class ResourceManager : MonoBehaviour
         resourcesCapacity[ResourceType.Humans] = 50;
 
 
-        AddResource(ResourceType.Coal, 40);
+        AddResource(ResourceType.Coal, 80);
         AddResource(ResourceType.Iron, 20);
         AddResource(ResourceType.Wood, 20);
         AddResource(ResourceType.Water, 20);

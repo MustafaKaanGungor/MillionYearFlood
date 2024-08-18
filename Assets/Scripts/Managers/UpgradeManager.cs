@@ -48,4 +48,12 @@ public class UpgradeManager : MonoBehaviour
 
     }
 
+    public void OverheatEngines() {
+        resourceManager.RemoveResource(ResourceManager.ResourceType.Coal, 30);
+        if (cityController.isWaiting)
+            cityController.ToggleWait();
+
+        cityController.OverHeatEngines(cityController.maxSpeed * 3, 3f);
+    }
+
 }
