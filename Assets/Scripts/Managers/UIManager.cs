@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider waveSlider;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Transform waveTransform;
-    [SerializeField] private float mapborder;
+    [SerializeField] private Transform mapborder;
 
     [SerializeField] private Image resourceGatheringBar;
 
@@ -78,9 +78,9 @@ public class UIManager : MonoBehaviour
     } 
 
     void ProgressBars() {
-        float playerProgress = playerTransform.position.y / mapborder;
+        float playerProgress = playerTransform.position.y / mapborder.position.y;
         playerSlider.value = playerProgress;
-        float waveProgress = (waveTransform.position.y + 4) / mapborder;
+        float waveProgress = (waveTransform.position.y + 4) / mapborder.position.y;
         waveSlider.value = waveProgress;
     }
 

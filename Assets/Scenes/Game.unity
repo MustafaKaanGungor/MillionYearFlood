@@ -9541,7 +9541,7 @@ MonoBehaviour:
   waveSlider: {fileID: 172705587}
   playerTransform: {fileID: 228674599}
   waveTransform: {fileID: 521980005}
-  mapborder: 130
+  mapborder: {fileID: 1001205240}
   resourceGatheringBar: {fileID: 851495169}
 --- !u!114 &1904990774
 MonoBehaviour:
