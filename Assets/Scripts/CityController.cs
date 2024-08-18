@@ -103,10 +103,7 @@ public class CityController : MonoBehaviour
             UseWater(waterAmount);
         }
 
-        if(resourceManager.GetResourceAmount(ResourceManager.ResourceType.Humans) <=0)
-        {
-            gameManager.GameOver();
-        }
+
     }
 
     public void ToggleWait() {

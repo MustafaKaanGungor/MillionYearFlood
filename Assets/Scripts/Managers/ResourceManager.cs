@@ -14,6 +14,8 @@ public class ResourceManager : MonoBehaviour
 
     public int totalHumanCount = 115;
 
+    [SerializeField] private GameManager gameManager;
+
     public delegate void OnResourceChangedDelegate(Dictionary<ResourceType, int> resources);
     public static event OnResourceChangedDelegate OnResourceChanged;
 
@@ -38,24 +40,32 @@ public class ResourceManager : MonoBehaviour
         AddResource(ResourceType.Iron, 20);
         AddResource(ResourceType.Wood, 20);
         AddResource(ResourceType.Water, 20);
-        AddResource(ResourceType.Food, 20);
-        AddResource(ResourceType.Humans, 50);
+        AddResource(ResourceType.Food, 5);
+        AddResource(ResourceType.Humans, 4);
     }
 
     private void Update() 
     {
-        int HumanDiff =  GetResourceAmount(ResourceType.Food) - GetResourceAmount(ResourceType.Humans); 
+        int food = GetResourceAmount(ResourceType.Food);
+        int HumanDiff =  food - GetResourceAmount(ResourceType.Humans); 
         uiManager.UpdateResourceUI(resources);
-        if(HumanDiff / 5 < 0 || GetResourceAmount(ResourceType.Food)==0)
+        if(HumanDiff / 5 < 0 || food ==0)
         {
             Humantimer += Time.deltaTime;
-            
-            if(Humantimer > 5)
+            if (Humantimer > 5)
             {
-                RemoveResource(ResourceType.Humans, (-HumanDiff / 5)+1);
+                int amount = -HumanDiff / 5;
+
+                if (-HumanDiff < 5 && food == 0)
+                    amount = GetResourceAmount(ResourceType.Humans);
+
+                RemoveResource(ResourceType.Humans, amount);
                 Humantimer=0;
+
+                if (GetResourceAmount(ResourceManager.ResourceType.Humans) <= 0) {
+                    gameManager.GameOver();
+                }
             }
-            
         }
     }
 

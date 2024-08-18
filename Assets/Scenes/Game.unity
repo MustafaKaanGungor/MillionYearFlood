@@ -1907,6 +1907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManager: {fileID: 1904990773}
   totalHumanCount: 115
+  gameManager: {fileID: 1038046788}
 --- !u!1001 &354754203
 PrefabInstance:
   m_ObjectHideFlags: 0
