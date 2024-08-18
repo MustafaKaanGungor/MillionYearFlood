@@ -30,6 +30,7 @@ public class CityController : MonoBehaviour
     private float waterConsumeDur = 2f;
     private float waterConsumeTime = 0f;
     public bool isWaiting = false;
+    private bool canWait = true;
 
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private GameManager gameManager;
@@ -109,6 +110,8 @@ public class CityController : MonoBehaviour
     }
 
     public void ToggleWait() {
+        if (!canWait) return;
+
         isWaiting = !isWaiting;
 
         maxSpeed = isWaiting ? 0f : defMaxSpeed;
@@ -154,6 +157,28 @@ public class CityController : MonoBehaviour
     }
     public void EnableBuilding(GameObject obj) {
         obj.SetActive(true);
+    }
+
+    public void OverHeatEngines(float maxSpeed, float dur) {
+
+        StartCoroutine(_OverHeatEngines(maxSpeed, dur));
+    }
+
+    private IEnumerator _OverHeatEngines(float maxSpeed, float dur) {
+        canWait = false;
+
+        float tempMaxSpeed = this.maxSpeed;
+        float defAcceleration = acceleration;
+
+        this.maxSpeed = maxSpeed;
+        acceleration *= 3;
+
+        yield return new WaitForSeconds(dur);
+
+        this.maxSpeed = tempMaxSpeed;
+
+        acceleration = defAcceleration;
+        canWait = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
