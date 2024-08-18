@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public GameObject victoryPanel;
 
     public TextMeshProUGUI victoryText;
+    public TextMeshProUGUI GameOverText;
 
     public TMP_Text[] ResourceTexts;
     public TMP_Text[] ResourceCapacityTexts;
@@ -58,9 +59,10 @@ public class UIManager : MonoBehaviour
         mainMenu.SetActive(active);
     }
 
-    public void ToggleGameOverPanel() {
+    public void ToggleGameOverPanel(string LoseText) {
         ToggleGameplayPanel(true);
         gameOverPanel.SetActive(true);
+        GameOverText.text = LoseText;
     }
 
     public void ToggleVictoryPanel() {

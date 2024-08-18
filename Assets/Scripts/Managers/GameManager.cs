@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public delegate void OnPauseToggledDelegate(bool isPaused);
     public static event OnPauseToggledDelegate OnPauseToggled;
 
-    public delegate void OnGameOverDelegate();
+    public delegate void OnGameOverDelegate(string message);
     public static event OnGameOverDelegate OnGameOver;
 
     public delegate void OnVictoryDelegate();
@@ -44,9 +44,9 @@ public class GameManager : MonoBehaviour
         OnPauseToggled?.Invoke(isPaused);
     }
 
-    public void GameOver() {
+    public void GameOver(string message) {
 
-        OnGameOver?.Invoke();
+        OnGameOver?.Invoke(message);
         Time.timeScale = 0;
 
     }

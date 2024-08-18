@@ -201,7 +201,7 @@ public class CityController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Flood")) {
             // Game over
-            gameManager.GameOver();
+            gameManager.GameOver("selden dolayı öldün");
             return;
         }
 
