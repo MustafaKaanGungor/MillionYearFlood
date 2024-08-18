@@ -71,13 +71,15 @@ public class UIManager : MonoBehaviour
 
     public void ReloadScene() 
     {
-        SceneManager.LoadScene(0);
+        SceneLoader.instance.LoadSceneWithIndex(1);
     }
 
     private void Update() {
         ProgressBars();
     } 
-
+    public void ReturnToMainMenu() {
+        SceneLoader.instance.LoadSceneWithIndex(0);
+    }
     void ProgressBars() {
         float playerProgress = playerTransform.position.y / mapborder.position.y;
         playerSlider.value = playerProgress;
