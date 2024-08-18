@@ -20,9 +20,6 @@ public class CityController : MonoBehaviour
     private float coalConsumeDur = 1f;
     private float coalConsumeTime = 0f;
 
-    private int foodConsumption = 1;
-    private float foodConsumeDur = 3f;
-    private float foodConsumeTime = 0f;
     private float foodProduceTime = 0f;
 
 
@@ -70,14 +67,7 @@ public class CityController : MonoBehaviour
 
         animator.speed = speed;
 
-        foodConsumeTime += Time.deltaTime;
 
-        if (foodConsumeTime >= foodConsumeDur) {
-            foodConsumeTime = 0f;
-            int foodAmount = (int)(foodConsumption * 10) / 10;
-
-            UseFood(foodAmount);
-        }
 
         waterConsumeTime += Time.deltaTime;
 
@@ -144,7 +134,6 @@ public class CityController : MonoBehaviour
     }
 
     private void UseFood(int foodAmount) {
-        resourceManager.RemoveResource(ResourceManager.ResourceType.Food, foodAmount);
     }
 
     private void UseWater(int waterAmount) {

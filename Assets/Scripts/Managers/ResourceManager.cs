@@ -20,6 +20,11 @@ public class ResourceManager : MonoBehaviour
     public static event OnResourceChangedDelegate OnResourceChanged;
 
     private float Humantimer;
+    private float foodConsumeTime = 0f;
+    private float foodConsumeDur = 3f;
+    private int foodConsumption = 1;
+
+    private int startingHumanCount = 20;
 
     void Start()
     {
@@ -35,37 +40,44 @@ public class ResourceManager : MonoBehaviour
         resourcesCapacity[ResourceType.Food] = 50;
         resourcesCapacity[ResourceType.Humans] = 50;
 
-
         AddResource(ResourceType.Coal, 80);
         AddResource(ResourceType.Iron, 20);
         AddResource(ResourceType.Wood, 20);
         AddResource(ResourceType.Water, 20);
         AddResource(ResourceType.Food, 5);
-        AddResource(ResourceType.Humans, 4);
+        AddResource(ResourceType.Humans, startingHumanCount);
     }
 
     private void Update() 
     {
         int food = GetResourceAmount(ResourceType.Food);
         int HumanDiff =  food - GetResourceAmount(ResourceType.Humans); 
-        if(HumanDiff / 5 < 0 || food ==0)
+        if(food ==0)
         {
             Humantimer += Time.deltaTime;
-            if (Humantimer > 5)
+            if (Humantimer > 1)
             {
-                int amount = -HumanDiff / 5;
-
-                if (-HumanDiff < 5 && food == 0)
-                    amount = GetResourceAmount(ResourceType.Humans);
-
+                int amount = 1; 
+                Humantimer = 0;
                 RemoveResource(ResourceType.Humans, amount);
-                Humantimer=0;
 
                 if (GetResourceAmount(ResourceManager.ResourceType.Humans) <= 0) {
                     gameManager.GameOver();
                 }
             }
         }
+
+        foodConsumeTime += Time.deltaTime;
+
+        int humanCount = GetResourceAmount(ResourceManager.ResourceType.Humans);
+
+        foodConsumeDur = 2 / ((humanCount + 1f) / startingHumanCount);
+
+        if (foodConsumeTime >= foodConsumeDur) {
+            foodConsumeTime = 0f;
+            RemoveResource(ResourceManager.ResourceType.Food, 1);
+        }
+
     }
 
     public void AddResource(ResourceType type, int amount)

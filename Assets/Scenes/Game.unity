@@ -516,7 +516,7 @@ PrefabInstance:
       objectReference: {fileID: 294604730}
     - target: {fileID: 7147997843390737179, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: cost.Array.data[0].cost
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7147997843390737179, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: cost.Array.data[0].type
