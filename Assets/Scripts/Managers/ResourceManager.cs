@@ -38,7 +38,7 @@ public class ResourceManager : MonoBehaviour
         AddResource(ResourceType.Iron, 20);
         AddResource(ResourceType.Wood, 20);
         AddResource(ResourceType.Water, 20);
-        AddResource(ResourceType.Food, 8);
+        AddResource(ResourceType.Food, 20);
         AddResource(ResourceType.Humans, 50);
     }
 
@@ -46,13 +46,13 @@ public class ResourceManager : MonoBehaviour
     {
         int HumanDiff =  GetResourceAmount(ResourceType.Food) - GetResourceAmount(ResourceType.Humans); 
         uiManager.UpdateResourceUI(resources);
-        if(HumanDiff / 5 < 0 )
+        if(HumanDiff / 5 < 0 || GetResourceAmount(ResourceType.Food)==0)
         {
             Humantimer += Time.deltaTime;
             
             if(Humantimer > 5)
             {
-                RemoveResource(ResourceType.Humans, -HumanDiff / 5);
+                RemoveResource(ResourceType.Humans, (-HumanDiff / 5)+1);
                 Humantimer=0;
             }
             
