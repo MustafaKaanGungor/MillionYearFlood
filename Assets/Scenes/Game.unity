@@ -17042,8 +17042,8 @@ MonoBehaviour:
   - {fileID: 375479493}
   - {fileID: 1661558918}
   audioSourcePrefab: {fileID: 5019217094608265738, guid: b9ac1089d6d689647ae4806d034db878, type: 3}
-  test: {fileID: 11400000, guid: fe7b011677d45ab4f90aa05bfab60e85, type: 2}
-  test2: {fileID: 11400000, guid: 0d174ea255db56c4ab9cd65643a64f71, type: 2}
+  engineSound: {fileID: 11400000, guid: c3742d9f1099be447a5d168cf0ce9296, type: 2}
+  engineSound2: {fileID: 11400000, guid: 64868165a26a77149acf26693411a84f, type: 2}
   test3: {fileID: 0}
 --- !u!4 &1293152178
 Transform:

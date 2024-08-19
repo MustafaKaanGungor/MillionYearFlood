@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Engine 2
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: d98e87fe8f18db0468e1b75b08f15ae7, type: 3}
+  - {fileID: 8300000, guid: e261b697124bda541ad833c585bafc89, type: 3}
   useRandomVolume: 0
-  volume: 0.655
+  volume: 0.445
   volumeRandom: {x: 0.5, y: 0.5}
   useRandomPitch: 0
-  pitch: 0.44
+  pitch: 0.54
   pitchRandom: {x: 1, y: 1}
   playOrder: 1
   playIndex: 0

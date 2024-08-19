@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Engine 1
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 98f0b69488c11404cbfb045e10c2df83, type: 3}
+  - {fileID: 8300000, guid: edbf276fbaebf6e49b3256d335d0ea12, type: 3}
   useRandomVolume: 0
-  volume: 1
+  volume: 0.178
   volumeRandom: {x: 0.5, y: 0.5}
   useRandomPitch: 0
-  pitch: 0
+  pitch: 1
   pitchRandom: {x: 1, y: 1}
   playOrder: 1
   playIndex: 0
-  loop: 0
+  loop: 1
   source: {fileID: 0}

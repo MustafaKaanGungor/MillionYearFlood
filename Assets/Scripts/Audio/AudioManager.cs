@@ -6,8 +6,8 @@ using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour{
     public List<AudioSource> audioSources = new List<AudioSource>();
     public GameObject audioSourcePrefab;
-    public SoundEffect test;
-    public SoundEffect test2;
+    public SoundEffect engineSound;
+    public SoundEffect engineSound2;
     public SoundEffect test3;
 
     public static AudioManager instance;
@@ -19,6 +19,11 @@ public class AudioManager : MonoBehaviour{
         else {
             instance = this;
         }
+
+        foreach (var item in AudioManager.instance.audioSources) {
+            item.clip = null;
+        }
+
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -37,10 +42,10 @@ public class AudioManager : MonoBehaviour{
         sound.Stop();
     }
 
-    public void StartFadeOut(SoundEffect sound) {
+    public void StartFadeOut(SoundEffect sound, float dur) {
         if (sound == null | sound.source == null) return;
 
-        StartCoroutine(_FadeOut(sound.source, 0.3f));
+        StartCoroutine(_FadeOut(sound.source, dur));
     }
 
     public void PlaySoundWithDelay(SoundEffect sound, 

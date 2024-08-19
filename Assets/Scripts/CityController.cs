@@ -50,6 +50,7 @@ public class CityController : MonoBehaviour
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private UIManager uiManager;
+    private AudioManager audioManager;
     public GameObject ParticleEffect;
 
     public ParticleSystem engineSmoke;
@@ -86,6 +87,9 @@ public class CityController : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         speed = 0;
         curEngine = engines[1];
+        audioManager = AudioManager.instance;
+        audioManager.PlaySound(audioManager.engineSound);
+        audioManager.PlaySound(audioManager.engineSound2);
 
         defSmokeEmitionRate = engineSmoke.emission.rateOverTime.constant;
     }
@@ -113,6 +117,9 @@ public class CityController : MonoBehaviour
 
 
         animator.speed = speed;
+        audioManager.engineSound.source.volume = speed * 0.8f;
+        audioManager.engineSound.source.pitch = speed * 0.8f;
+
 
         if (greenHouse.activeSelf ) {
             foodProduceTime += Time.deltaTime;
@@ -145,6 +152,13 @@ public class CityController : MonoBehaviour
         if (isWaiting && resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal) == 0) return;
 
         isWaiting = !isWaiting;
+
+       /* if (isWaiting) {
+            audioManager.StartFadeOut(audioManager.engineSound, 1f);
+        }
+        else {
+            audioManager.PlaySound(audioManager.engineSound);
+        }*/
         //resourceGatherArea.SetActive(isWaiting);
         curEngine.maxSpeed = isWaiting ? 0f : curEngine.defMaxSpeed;
     }
