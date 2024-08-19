@@ -73,6 +73,8 @@ public class CityController : MonoBehaviour
     private float foodTimer;
     private float humanTimer;
 
+    public bool canMoveAndGather = false;
+
     Rigidbody2D rigidbody;
 
     // Start is called before the first frame update
@@ -189,7 +191,17 @@ public class CityController : MonoBehaviour
 
         curEngine = engines[(int)index];
 
-        if (!isWaiting) return;
+        if (curEngine.tier == 1 && canMoveAndGather) {
+            isWaiting = true;
+            canWait = false;
+        }
+        else if (speed > 0) {
+            isWaiting = false;
+            canWait = true;
+        }
+
+        if (!isWaiting | canMoveAndGather) return;
+
 
         curEngine.maxSpeed = prevSpeed;
     }
