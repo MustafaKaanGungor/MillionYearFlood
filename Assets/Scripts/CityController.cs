@@ -49,6 +49,7 @@ public class CityController : MonoBehaviour
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private UIManager uiManager;
+    public ParticleSystem engineSmoke;
 
     [HideInInspector] public int woodPickAmount = 5;
     [HideInInspector] public int coalPickAmount = 5;
@@ -61,13 +62,13 @@ public class CityController : MonoBehaviour
 
 
     private int tier = 1;
+    private float defSmokeEmitionRate;
     private float ironTimer;
     private float coalTimer;
     private float woodTimer;
     private float waterTimer;
     private float foodTimer;
     private float humanTimer;
-
 
     Rigidbody2D rigidbody;
 
@@ -78,6 +79,8 @@ public class CityController : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         speed = 0;
         curEngine = engines[1];
+
+        defSmokeEmitionRate = engineSmoke.emission.rateOverTime.constant;
     }
 
     // Update is called once per frame
@@ -94,6 +97,8 @@ public class CityController : MonoBehaviour
         }
 
         animator.speed = speed;
+        var emission = engineSmoke.emission;
+        emission.rateOverTime = defSmokeEmitionRate * speed;
 
         if (greenHouse.activeSelf ) {
             foodProduceTime += Time.deltaTime;
