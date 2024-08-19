@@ -19,7 +19,7 @@ public class FloodController : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("End") && speed > 0) {
 
-            speed -= (float)(Time.deltaTime * 0.5);
+            speed -= (float)(Time.deltaTime * 0.1);
             
         }
     }

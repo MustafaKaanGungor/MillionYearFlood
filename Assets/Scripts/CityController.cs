@@ -83,22 +83,14 @@ public class CityController : MonoBehaviour
 
         animator.speed = speed;
 
-
-
-        waterConsumeTime += Time.deltaTime;
-
-        if (waterConsumeTime >= waterConsumeDur) {
-            waterConsumeTime = 0f;
-            int waterAmount = (int)(waterConsumption * 10) / 10;
-
-            UseWater(waterAmount);
-        }
-
-        if (greenHouse.activeSelf) {
+        if (greenHouse.activeSelf ) {
             foodProduceTime += Time.deltaTime;
-            if(foodProduceTime >= 5f) {
+            if(foodProduceTime >= 10f && resourceManager.GetResourceAmount(ResourceManager.ResourceType.Water) > 0) {
                 foodProduceTime = 0;
-                resourceManager.AddResource(ResourceManager.ResourceType.Food, 10);
+                int water = resourceManager.GetResourceAmount(ResourceManager.ResourceType.Water);
+                int amount = water > 5 ? 10 : water*2;
+                resourceManager.AddResource(ResourceManager.ResourceType.Food, water);
+                resourceManager.RemoveResource(ResourceManager.ResourceType.Water, 5);
             }
         }
 
@@ -118,6 +110,8 @@ public class CityController : MonoBehaviour
 
     public void ToggleWait() {
         if (!canWait) return;
+
+        if (isWaiting && resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal) == 0) return;
 
         isWaiting = !isWaiting;
 
@@ -257,7 +251,7 @@ public class CityController : MonoBehaviour
             uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Humans, humanTimer / 2);
             if (humanTimer > 2) {
                 humanTimer = 0;
-                resourceManager.AddResource(ResourceManager.ResourceType.Humans, 10);
+                resourceManager.AddResource(ResourceManager.ResourceType.Humans, 25);
 
                 Destroy(collision.gameObject);
             }

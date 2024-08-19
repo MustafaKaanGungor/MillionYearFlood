@@ -65,7 +65,7 @@ public class UpgradeManager : MonoBehaviour
         resourceManager.RemoveResource(ResourceManager.ResourceType.Wood, 10);
 
         engineSlider.maxValue = 2;
-        cityController.ChangeEngine(2);
+        //cityController.ChangeEngine(2);
     }
 
     public void EngineUpgrade2() {
@@ -73,7 +73,7 @@ public class UpgradeManager : MonoBehaviour
         resourceManager.RemoveResource(ResourceManager.ResourceType.Wood, 20);
         engineSlider.maxValue = 3;
 
-        cityController.ChangeEngine(3);
+        //cityController.ChangeEngine(3);
     }
 
 }
