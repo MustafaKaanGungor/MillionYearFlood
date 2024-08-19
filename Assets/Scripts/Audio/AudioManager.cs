@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour{
     public GameObject audioSourcePrefab;
     public SoundEffect engineSound;
     public SoundEffect engineSound2;
+    public SoundEffect floodSound;
+
     public SoundEffect test3;
 
     public static AudioManager instance;
@@ -21,7 +23,7 @@ public class AudioManager : MonoBehaviour{
         }
 
         foreach (var item in AudioManager.instance.audioSources) {
-            item.clip = null;
+            item.Stop();
         }
 
         DontDestroyOnLoad(this.gameObject);

@@ -7,9 +7,22 @@ public class FloodController : MonoBehaviour
     public GameManager gameManager;
     public float speed = 1f;
 
-    
+    private Camera cam;
+    private AudioManager audioManager;
+    private float distance;
+    private float refDistance = 7.63f;
+
+    private void Start() {
+        cam = Camera.main;
+        audioManager = AudioManager.instance;
+        audioManager.PlaySound(audioManager.floodSound);
+
+    }
+
     void Update()
     {
+        distance = cam.transform.position.y - transform.position.y;
+        audioManager.floodSound.source.volume = refDistance / distance / 3;
         MoveUp();
     }
 
