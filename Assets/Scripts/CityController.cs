@@ -23,6 +23,7 @@ public class CityController : MonoBehaviour
     public GameObject silo;
     public GameObject greenHouse;
     public GameObject blacksmith;
+    public GameObject watchTower;
     public GameObject resourceGatherArea;
 
     public EngineTier[] engines;
@@ -173,6 +174,9 @@ public class CityController : MonoBehaviour
         }
     }
 
+    public void IncreaseResourceGatherArea() {
+        resourceGatherArea.transform.localScale *= 1.2f;
+    }
     private void UseWater(int waterAmount) {
         resourceManager.RemoveResource(ResourceManager.ResourceType.Water, waterAmount);
     }

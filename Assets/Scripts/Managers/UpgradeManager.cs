@@ -103,4 +103,11 @@ public class UpgradeManager : MonoBehaviour
 
         cityController.canMoveAndGather = true;
     }
+
+    public void BuildWatchTower(Upgrade upgrade) {
+        ApplyCost(upgrade);
+
+        cityController.IncreaseResourceGatherArea();
+        cityController.EnableBuilding(cityController.watchTower);
+    }
 }
