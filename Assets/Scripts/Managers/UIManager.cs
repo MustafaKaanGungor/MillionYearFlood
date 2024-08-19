@@ -22,6 +22,11 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private ResourceManager resourceManager;
 
+    [SerializeField] private Button waitButton;
+
+    [SerializeField] private Sprite leverUpImage;
+    [SerializeField] private Sprite leverDownImage;
+
     [SerializeField] private Slider playerSlider;
     [SerializeField] private Slider waveSlider;
     [SerializeField] private Transform playerTransform;
@@ -92,6 +97,15 @@ public class UIManager : MonoBehaviour
         playerSlider.value = playerProgress;
         float waveProgress = (waveTransform.position.y + 4) / mapborder.position.y;
         waveSlider.value = waveProgress;
+    }
+
+    public void ToggleWaitButtonSprite() {
+        if(waitButton.image.sprite == leverUpImage) {
+            waitButton.image.sprite = leverDownImage;
+        }
+        else if (waitButton.image.sprite == leverDownImage) {
+            waitButton.image.sprite = leverUpImage;
+        }
     }
 
     public void ResourceGatheringBar(ResourceManager.ResourceType resource,float percentage) {
