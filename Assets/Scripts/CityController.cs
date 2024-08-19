@@ -51,6 +51,9 @@ public class CityController : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private UIManager uiManager;
     public ParticleSystem engineSmoke;
+    public ParticleSystem tierUpgradeEffect;
+    public ParticleSystem buildingUnlockEffect;
+
 
     [HideInInspector] public int woodPickAmount = 5;
     [HideInInspector] public int coalPickAmount = 5;
@@ -166,12 +169,20 @@ public class CityController : MonoBehaviour
     }
 
     public void UnlockSecondTier() {
-        animator.SetBool("isTier2", true);
+        Invoke("_UblockSecondTier", 0.1f);
         tier = 2;
+        tierUpgradeEffect.Play();
+    }
+    private void _UblockSecondTier() {
+        animator.SetBool("isTier2", true);
         transform.localScale = Vector3.one * 1.2f;
     }
+
     public void EnableBuilding(GameObject obj) {
         obj.SetActive(true);
+
+        buildingUnlockEffect.transform.position = obj.transform.position;
+        buildingUnlockEffect.Play();
     }
 
     public void ChangeEngine(System.Single index) {

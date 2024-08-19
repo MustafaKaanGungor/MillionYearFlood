@@ -1607,7 +1607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8032913137777694588, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: m_text
-      value: 'Build Blacksmith A
+      value: 'Build Blacksmith B
 
         -%20 gathering,
 
@@ -2649,6 +2649,8 @@ Transform:
   - {fileID: 17691439}
   - {fileID: 335238829}
   - {fileID: 852986465}
+  - {fileID: 1550560898}
+  - {fileID: 2022029301}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &228674600
@@ -2736,10 +2738,13 @@ MonoBehaviour:
     engineEfficiencyMult: 0
   speed: 1
   isWaiting: 0
+  canMoveAndGather: 0
   resourceManager: {fileID: 294604730}
   gameManager: {fileID: 1038046788}
   uiManager: {fileID: 1904990773}
   engineSmoke: {fileID: 852986467}
+  tierUpgradeEffect: {fileID: 1550560897}
+  buildingUnlockEffect: {fileID: 2022029300}
   woodPickAmount: 5
   coalPickAmount: 5
   ironPickAmount: 5
@@ -4718,8 +4723,8 @@ Transform:
   m_GameObject: {fileID: 521980002}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -9.65, z: 0}
-  m_LocalScale: {x: 1, y: 1.255869, z: 0.047370914}
+  m_LocalPosition: {x: 0.0738, y: -9.65, z: 0}
+  m_LocalScale: {x: 0.65424544, y: 1.255869, z: 0.047370914}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -12674,7 +12679,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: a4ddb36a97ff7d147bc2b1f53555082a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -13786,7 +13791,7 @@ Transform:
   m_GameObject: {fileID: 1001205237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 120.6, z: 0}
+  m_LocalPosition: {x: 0, y: 131.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -13904,7 +13909,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 98bff56ab1e3f2344a0d673dec882d33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -14498,7 +14503,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: f2dec7fd61f3cf7408a8a5b9485029cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15422,7 +15427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8032913137777694588, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: m_text
-      value: Grants gathering resources while moving in power mode 01
+      value: Ublocks gathering resources while moving in power mode 01
       objectReference: {fileID: 0}
     - target: {fileID: 8032913137777694588, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -17493,7 +17498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &1550560896
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -17515,7 +17520,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 613d749a372158b4fb930c6a3751bb2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17582,10 +17587,10 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  emitterVelocityMode: 1
-  looping: 1
+  emitterVelocityMode: 0
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -17758,7 +17763,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.4392157}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -18286,7 +18291,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.0001
+      value: 0.95
       mode: 0
       spread: 0
       speed:
@@ -18515,7 +18520,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 25
+        scalar: 100
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -22357,12 +22362,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550560895}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.01, y: -1.1, z: 0.52626234}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -0.049999997, y: 0.13, z: 0.52626234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 228674599}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!4 &1566792070 stripped
 Transform:
@@ -24437,7 +24442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1803820500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26018,7 +26023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &2022029299
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -26040,7 +26045,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 613d749a372158b4fb930c6a3751bb2e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -26108,9 +26113,9 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -26283,7 +26288,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.49019608}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -26347,8 +26352,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.1
-      minScalar: 0.05
+      scalar: 0.2
+      minScalar: 0.15
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -26811,7 +26816,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.0001
+      value: 0.32
       mode: 0
       spread: 0
       speed:
@@ -30882,12 +30887,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022029298}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.463, y: -0.927, z: 0.52626234}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.403, y: 0.30300003, z: 0.52626234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 228674599}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1001 &2023838234
 PrefabInstance:
@@ -32378,5 +32383,3 @@ SceneRoots:
   - {fileID: 1803820503}
   - {fileID: 1001205240}
   - {fileID: 1516445543}
-  - {fileID: 1550560898}
-  - {fileID: 2022029301}
