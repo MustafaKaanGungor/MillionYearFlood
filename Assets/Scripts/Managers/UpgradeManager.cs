@@ -19,12 +19,14 @@ public class UpgradeManager : MonoBehaviour
         
     }
 
-    public void Upgrade0() {
+    private void ApplyCost(Upgrade upgrade) {
+        foreach (var item in upgrade.cost) {
+            resourceManager.RemoveResource(item.type, item.cost);
+        }
+    }
 
-        resourceManager.RemoveResource(ResourceManager.ResourceType.Wood, 10);
-        resourceManager.RemoveResource(ResourceManager.ResourceType.Iron, 10);
-        resourceManager.RemoveResource(ResourceManager.ResourceType.Coal, 10);
-
+    public void Upgrade0(Upgrade upgrade) {
+        ApplyCost(upgrade);
         cityController.UnlockSecondTier();
 
         foreach (var item in secondTierUpgrades) {
@@ -33,10 +35,8 @@ public class UpgradeManager : MonoBehaviour
     }
 
 
-    public void UnlockSilo() {
-        resourceManager.RemoveResource(ResourceManager.ResourceType.Wood, 10);
-        resourceManager.RemoveResource(ResourceManager.ResourceType.Iron, 5);
-
+    public void UnlockSilo(Upgrade upgrade) {
+        ApplyCost(upgrade);
         resourceManager.AddResourceCapacity(ResourceManager.ResourceType.Water, 50);
         resourceManager.AddResourceCapacity(ResourceManager.ResourceType.Food, 50);
 
@@ -44,33 +44,28 @@ public class UpgradeManager : MonoBehaviour
 
     }
 
-    public void UnlockGreenHouse() {
-        resourceManager.RemoveResource(ResourceManager.ResourceType.Wood, 10);
-        resourceManager.RemoveResource(ResourceManager.ResourceType.Water, 50);
-
+    public void UnlockGreenHouse(Upgrade upgrade) {
+        ApplyCost(upgrade);
         cityController.EnableBuilding(cityController.greenHouse);
 
     }
 
-    public void OverheatEngines() {
-        resourceManager.RemoveResource(ResourceManager.ResourceType.Coal, 30);
+    public void OverheatEngines(Upgrade upgrade) {
+        ApplyCost(upgrade);
         if (cityController.isWaiting)
             cityController.ToggleWait();
 
         cityController.OverHeatEngines(cityController.curEngine.maxSpeed * 3, 3f);
     }
 
-    public void EngineUpgrade1() {
-        resourceManager.RemoveResource(ResourceManager.ResourceType.Iron, 30);
-        resourceManager.RemoveResource(ResourceManager.ResourceType.Wood, 10);
-
+    public void EngineUpgrade1(Upgrade upgrade) {
+        ApplyCost(upgrade);
         engineSlider.maxValue = 2;
         //cityController.ChangeEngine(2);
     }
 
-    public void EngineUpgrade2() {
-        resourceManager.RemoveResource(ResourceManager.ResourceType.Iron, 60);
-        resourceManager.RemoveResource(ResourceManager.ResourceType.Wood, 20);
+    public void EngineUpgrade2(Upgrade upgrade) {
+        ApplyCost(upgrade);
         engineSlider.maxValue = 3;
 
         //cityController.ChangeEngine(3);

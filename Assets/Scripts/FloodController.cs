@@ -20,7 +20,6 @@ public class FloodController : MonoBehaviour
         if (collision.gameObject.CompareTag("End") && speed > 0) {
 
             speed -= (float)(Time.deltaTime * 0.1);
-            
         }
     }
 

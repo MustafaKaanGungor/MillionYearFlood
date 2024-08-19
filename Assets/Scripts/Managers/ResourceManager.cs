@@ -52,7 +52,7 @@ public class ResourceManager : MonoBehaviour
     {
         int food = GetResourceAmount(ResourceType.Food);
         int HumanDiff =  food - GetResourceAmount(ResourceType.Humans); 
-        if(food ==0)
+        if(food == 0)
         {
             Humantimer += Time.deltaTime;
             if (Humantimer > 1)
@@ -61,7 +61,7 @@ public class ResourceManager : MonoBehaviour
                 Humantimer = 0;
                 RemoveResource(ResourceType.Humans, amount);
 
-                if (GetResourceAmount(ResourceManager.ResourceType.Humans) <= 0) {
+                if (GetResourceAmount(ResourceType.Humans) <= 0) {
                     gameManager.GameOver("açlıktan öldün");
                 }
             }
@@ -75,7 +75,7 @@ public class ResourceManager : MonoBehaviour
 
         if (foodConsumeTime >= foodConsumeDur) {
             foodConsumeTime = 0f;
-            RemoveResource(ResourceManager.ResourceType.Food, 1);
+            RemoveResource(ResourceType.Food, 1);
         }
 
     }

@@ -64,7 +64,7 @@ public class CityController : MonoBehaviour
     {
         //defMaxSpeed = curEngine.maxSpeed;
         rigidbody = GetComponent<Rigidbody2D>();
-
+        speed = 0;
         curEngine = engines[1];
     }
 
