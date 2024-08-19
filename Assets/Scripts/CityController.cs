@@ -45,15 +45,11 @@ public class CityController : MonoBehaviour
     private float waterConsumeTime = 0f;
     public bool isWaiting = false;
     private bool canWait = true;
-    public bool canMoveAndGather = false;
 
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private UIManager uiManager;
     public ParticleSystem engineSmoke;
-    public ParticleSystem tierUpgradeEffect;
-    public ParticleSystem buildingUnlockEffect;
-
 
     [HideInInspector] public int woodPickAmount = 5;
     [HideInInspector] public int coalPickAmount = 5;
@@ -169,20 +165,12 @@ public class CityController : MonoBehaviour
     }
 
     public void UnlockSecondTier() {
-        Invoke("_UblockSecondTier", 0.1f);
-        tier = 2;
-        tierUpgradeEffect.Play();
-    }
-    private void _UblockSecondTier() {
         animator.SetBool("isTier2", true);
+        tier = 2;
         transform.localScale = Vector3.one * 1.2f;
     }
-
     public void EnableBuilding(GameObject obj) {
         obj.SetActive(true);
-
-        buildingUnlockEffect.transform.position = obj.transform.position;
-        buildingUnlockEffect.Play();
     }
 
     public void ChangeEngine(System.Single index) {
@@ -190,16 +178,7 @@ public class CityController : MonoBehaviour
 
         curEngine = engines[(int)index];
 
-        if(curEngine.tier == 1 && canMoveAndGather) {
-            isWaiting = true;
-            canWait = false;
-        }
-        else if(speed > 0) {
-            isWaiting = false;
-            canWait = true;
-        }
-
-        if (!isWaiting | canMoveAndGather) return;
+        if (!isWaiting) return;
 
         curEngine.maxSpeed = prevSpeed;
     }
