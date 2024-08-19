@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FloodController : MonoBehaviour
 {
+    public GameManager gameManager;
     public float speed = 1f;
 
     
@@ -20,6 +21,10 @@ public class FloodController : MonoBehaviour
         if (collision.gameObject.CompareTag("End") && speed > 0) {
 
             speed -= (float)(Time.deltaTime * 0.1);
+        }
+
+        if (collision.gameObject.CompareTag("City")) {
+            gameManager.GameOver("Drowned in the flood.");
         }
     }
 

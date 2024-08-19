@@ -23,7 +23,7 @@ public class CityController : MonoBehaviour
     public GameObject silo;
     public GameObject greenHouse;
     public GameObject blacksmith;
-
+    public GameObject resourceGatherArea;
 
     public EngineTier[] engines;
     public EngineTier curEngine; //[HideInInspector] 
@@ -136,7 +136,7 @@ public class CityController : MonoBehaviour
         if (isWaiting && resourceManager.GetResourceAmount(ResourceManager.ResourceType.Coal) == 0) return;
 
         isWaiting = !isWaiting;
-
+        //resourceGatherArea.SetActive(isWaiting);
         curEngine.maxSpeed = isWaiting ? 0f : curEngine.defMaxSpeed;
     }
 
@@ -233,11 +233,11 @@ public class CityController : MonoBehaviour
             curEngine.maxSpeed /= 6f;
         }
 
-        if (collision.gameObject.CompareTag("Flood")) {
+        /*if (collision.gameObject.CompareTag("Flood")) {
             // Game over
             gameManager.GameOver("selden dolayı öldün");
             return;
-        }
+        }*/
 
     }
 

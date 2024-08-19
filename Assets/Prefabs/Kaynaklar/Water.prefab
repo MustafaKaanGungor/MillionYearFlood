@@ -8,9 +8,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 575851338597872204, guid: fe6550b2b3b7ab2409bd77b2124d8522, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2751832422730106610, guid: fe6550b2b3b7ab2409bd77b2124d8522, type: 3}
       propertyPath: m_Name
-      value: Water Variant
+      value: Water
       objectReference: {fileID: 0}
     - target: {fileID: 2751832422730106610, guid: fe6550b2b3b7ab2409bd77b2124d8522, type: 3}
       propertyPath: m_TagString

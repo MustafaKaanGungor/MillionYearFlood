@@ -12,6 +12,7 @@ TagManager:
   - End
   - Human
   - Food
+  - City
   layers:
   - Default
   - TransparentFX
