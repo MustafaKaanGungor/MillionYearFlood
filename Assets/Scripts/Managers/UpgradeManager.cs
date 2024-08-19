@@ -34,7 +34,6 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-
     public void UnlockSilo(Upgrade upgrade) {
         ApplyCost(upgrade);
         resourceManager.AddResourceCapacity(ResourceManager.ResourceType.Water, 50);

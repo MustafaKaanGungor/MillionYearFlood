@@ -202,7 +202,7 @@ public class CityController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("End")) {
-            curEngine.maxSpeed /= 4f;
+            curEngine.maxSpeed /= 6f;
         }
 
         if (collision.gameObject.CompareTag("Flood")) {
