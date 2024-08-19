@@ -16942,7 +16942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseOverSound: {fileID: 0}
-  mouseDownSound: {fileID: 0}
+  mouseDownSound: {fileID: 11400000, guid: 8312c711188e62f429a357a01e76be57, type: 2}
 --- !u!1001 &1289521950
 PrefabInstance:
   m_ObjectHideFlags: 0
