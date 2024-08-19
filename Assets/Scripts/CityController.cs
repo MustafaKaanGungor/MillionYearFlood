@@ -45,6 +45,7 @@ public class CityController : MonoBehaviour
     private float waterConsumeTime = 0f;
     public bool isWaiting = false;
     private bool canWait = true;
+    public bool canMoveAndGather = false;
 
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private GameManager gameManager;
@@ -178,7 +179,16 @@ public class CityController : MonoBehaviour
 
         curEngine = engines[(int)index];
 
-        if (!isWaiting) return;
+        if(curEngine.tier == 1 && canMoveAndGather) {
+            isWaiting = true;
+            canWait = false;
+        }
+        else if(speed > 0) {
+            isWaiting = false;
+            canWait = true;
+        }
+
+        if (!isWaiting | canMoveAndGather) return;
 
         curEngine.maxSpeed = prevSpeed;
     }

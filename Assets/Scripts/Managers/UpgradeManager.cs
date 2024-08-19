@@ -97,4 +97,10 @@ public class UpgradeManager : MonoBehaviour
 
         cityController.resourcePickupDur *= 0.6f;
     }
+
+    public void GatherWhileInPower0(Upgrade upgrade) {
+        ApplyCost(upgrade);
+
+        cityController.canMoveAndGather = true;
+    }
 }

@@ -22,7 +22,6 @@ public class Upgrade : MonoBehaviour
 
     private void OnDisable() {
         ResourceManager.OnResourceChanged -= UpdateStatus;
-
     }
 
     private void UpdateStatus(Dictionary<ResourceManager.ResourceType, int> resources, Dictionary<ResourceManager.ResourceType, int> resourceCapacity) {
