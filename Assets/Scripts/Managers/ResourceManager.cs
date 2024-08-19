@@ -24,7 +24,7 @@ public class ResourceManager : MonoBehaviour
     private float foodConsumeDur = 3f;
     private int foodConsumption = 1;
 
-    private int startingHumanCount = 56;
+    private int startingHumanCount = 36;
 
     void Start()
     {
@@ -44,7 +44,7 @@ public class ResourceManager : MonoBehaviour
         AddResource(ResourceType.Iron, 0);
         AddResource(ResourceType.Wood, 0);
         AddResource(ResourceType.Water, 20);
-        AddResource(ResourceType.Food, 20);
+        AddResource(ResourceType.Food, 10);
         AddResource(ResourceType.Humans, startingHumanCount);
     }
 
