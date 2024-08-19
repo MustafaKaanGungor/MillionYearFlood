@@ -41,6 +41,13 @@ public class Upgrade : MonoBehaviour
         canYouGetImage.color = green;
         getButton.interactable = true;
     }
+
+    public void DisableUpgrade() {
+        gameObject.transform.SetAsLastSibling();
+        canYouGetImage.color = Color.grey;
+        getButton.interactable = false;
+        ResourceManager.OnResourceChanged -= UpdateStatus;
+    }
 }
 
 [System.Serializable]
