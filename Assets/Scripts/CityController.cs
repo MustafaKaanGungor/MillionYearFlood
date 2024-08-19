@@ -22,6 +22,8 @@ public class CityController : MonoBehaviour
 
     public GameObject silo;
     public GameObject greenHouse;
+    public GameObject blacksmith;
+
 
     public EngineTier[] engines;
     public EngineTier curEngine; //[HideInInspector] 
@@ -47,6 +49,16 @@ public class CityController : MonoBehaviour
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private UIManager uiManager;
+
+    [HideInInspector] public int woodPickAmount = 5;
+    [HideInInspector] public int coalPickAmount = 5;
+    [HideInInspector] public int ironPickAmount = 5;
+    [HideInInspector] public int waterPickAmount = 5;
+    [HideInInspector] public int foodPickAmount = 5;
+    [HideInInspector] public int humanPickAmount = 25;
+
+    [HideInInspector] public float resourcePickupDur = 2f;
+
 
     private int tier = 1;
     private float ironTimer;
@@ -205,50 +217,50 @@ public class CityController : MonoBehaviour
 
         if(collision.gameObject.CompareTag("Iron") && isWaiting) {
             ironTimer += Time.deltaTime;
-            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Iron, ironTimer/2);
-            if(ironTimer > 2) {
+            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Iron, ironTimer/ resourcePickupDur);
+            if(ironTimer > resourcePickupDur) {
                 ironTimer = 0;
-                resourceManager.AddResource(ResourceManager.ResourceType.Iron, 5);
+                resourceManager.AddResource(ResourceManager.ResourceType.Iron, ironPickAmount);
                 Debug.Log(resourceManager.GetResourceAmount(ResourceManager.ResourceType.Iron));
             }
         }
 
         if (collision.gameObject.CompareTag("Coal") && isWaiting) {
             coalTimer += Time.deltaTime;
-            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Coal, coalTimer/2);
-            if (coalTimer > 2) {
+            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Coal, coalTimer/ resourcePickupDur);
+            if (coalTimer > resourcePickupDur) {
                 coalTimer = 0;
-                resourceManager.AddResource(ResourceManager.ResourceType.Coal, 5);
+                resourceManager.AddResource(ResourceManager.ResourceType.Coal, coalPickAmount);
             }
         }
 
         if (collision.gameObject.CompareTag("Wood") && isWaiting) {
             woodTimer += Time.deltaTime;
-            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Wood, woodTimer/2);
-            if (woodTimer > 2) {
+            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Wood, woodTimer/ resourcePickupDur);
+            if (woodTimer > resourcePickupDur) {
                 woodTimer = 0;
-                resourceManager.AddResource(ResourceManager.ResourceType.Wood, 5);
+                resourceManager.AddResource(ResourceManager.ResourceType.Wood, woodPickAmount);
             }
         }
         if (collision.gameObject.CompareTag("Water") && isWaiting) {
             waterTimer += Time.deltaTime;
-            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Water, waterTimer/2);
-            if (waterTimer > 2) {
+            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Water, waterTimer/ resourcePickupDur);
+            if (waterTimer > resourcePickupDur) {
                 waterTimer = 0;
-                resourceManager.AddResource(ResourceManager.ResourceType.Water, 5);
+                resourceManager.AddResource(ResourceManager.ResourceType.Water, waterPickAmount);
             }
         }
         if (collision.gameObject.CompareTag("Food") && isWaiting) {
             foodTimer += Time.deltaTime;
-            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Food, foodTimer/2);
-            if (foodTimer > 2) {
+            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Food, foodTimer/ resourcePickupDur);
+            if (foodTimer > resourcePickupDur) {
                 foodTimer = 0;
-                resourceManager.AddResource(ResourceManager.ResourceType.Food, 5);
+                resourceManager.AddResource(ResourceManager.ResourceType.Food, foodPickAmount);
             }
         }
         if (collision.gameObject.CompareTag("Human") && isWaiting) {
             humanTimer += Time.deltaTime;
-            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Humans, humanTimer / 2);
+            uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Humans, humanTimer / resourcePickupDur);
             if (humanTimer > 2) {
                 humanTimer = 0;
                 resourceManager.AddResource(ResourceManager.ResourceType.Humans, 25);

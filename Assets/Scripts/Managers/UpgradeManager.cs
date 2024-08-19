@@ -71,4 +71,31 @@ public class UpgradeManager : MonoBehaviour
         //cityController.ChangeEngine(3);
     }
 
+    public void BuildBlacksmithA(Upgrade upgrade) {
+        ApplyCost(upgrade);
+
+        //cityController.EnableBuilding(cityController.blacksmith);
+
+        cityController.woodPickAmount = 8;
+        cityController.ironPickAmount = 8;
+        cityController.coalPickAmount = 8;
+        cityController.foodPickAmount = 8;
+        cityController.waterPickAmount = 8;
+
+        cityController.resourcePickupDur *= 1.2f; 
+    }
+
+    public void BuildBlacksmithB(Upgrade upgrade) {
+        ApplyCost(upgrade);
+
+        //cityController.EnableBuilding(cityController.blacksmith);
+
+        cityController.woodPickAmount = 4;
+        cityController.ironPickAmount = 4;
+        cityController.coalPickAmount = 4;
+        cityController.foodPickAmount = 4;
+        cityController.waterPickAmount = 4;
+
+        cityController.resourcePickupDur *= 0.6f;
+    }
 }
