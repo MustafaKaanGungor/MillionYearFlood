@@ -153,14 +153,9 @@ public class CityController : MonoBehaviour
 
         isWaiting = !isWaiting;
 
-       /* if (isWaiting) {
-            audioManager.StartFadeOut(audioManager.engineSound, 1f);
-        }
-        else {
-            audioManager.PlaySound(audioManager.engineSound);
-        }*/
-        //resourceGatherArea.SetActive(isWaiting);
         curEngine.maxSpeed = isWaiting ? 0f : curEngine.defMaxSpeed;
+
+        uiManager.ToggleWaitButtonSprite();
     }
 
     public void MoveUp() {
@@ -268,8 +263,11 @@ public class CityController : MonoBehaviour
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
+        if (!isWaiting) return;
 
-        if(collision.gameObject.CompareTag("Iron") && isWaiting) {
+        if (speed > 0.2f) return;
+
+        if(collision.gameObject.CompareTag("Iron")) {
             ironTimer += Time.deltaTime;
             uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Iron, ironTimer/ resourcePickupDur);
             if(ironTimer > resourcePickupDur) {
@@ -279,7 +277,7 @@ public class CityController : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Coal") && isWaiting) {
+        if (collision.gameObject.CompareTag("Coal")) {
             coalTimer += Time.deltaTime;
             uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Coal, coalTimer/ resourcePickupDur);
             if (coalTimer > resourcePickupDur) {
@@ -288,7 +286,7 @@ public class CityController : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Wood") && isWaiting) {
+        if (collision.gameObject.CompareTag("Wood")) {
             woodTimer += Time.deltaTime;
             uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Wood, woodTimer/ resourcePickupDur);
             if (woodTimer > resourcePickupDur) {
@@ -296,7 +294,7 @@ public class CityController : MonoBehaviour
                 resourceManager.AddResource(ResourceManager.ResourceType.Wood, woodPickAmount);
             }
         }
-        if (collision.gameObject.CompareTag("Water") && isWaiting) {
+        if (collision.gameObject.CompareTag("Water")) {
             waterTimer += Time.deltaTime;
             uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Water, waterTimer/ resourcePickupDur);
             if (waterTimer > resourcePickupDur) {
@@ -304,7 +302,7 @@ public class CityController : MonoBehaviour
                 resourceManager.AddResource(ResourceManager.ResourceType.Water, waterPickAmount);
             }
         }
-        if (collision.gameObject.CompareTag("Food") && isWaiting) {
+        if (collision.gameObject.CompareTag("Food")) {
             foodTimer += Time.deltaTime;
             uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Food, foodTimer/ resourcePickupDur);
             if (foodTimer > resourcePickupDur) {
@@ -312,7 +310,7 @@ public class CityController : MonoBehaviour
                 resourceManager.AddResource(ResourceManager.ResourceType.Food, foodPickAmount);
             }
         }
-        if (collision.gameObject.CompareTag("Human") && isWaiting) {
+        if (collision.gameObject.CompareTag("Human")) {
             humanTimer += Time.deltaTime;
             uiManager.ResourceGatheringBar(ResourceManager.ResourceType.Humans, humanTimer / resourcePickupDur);
             if (humanTimer > 2) {

@@ -15,9 +15,12 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI victoryText;
     public TextMeshProUGUI GameOverText;
+    public TextMeshProUGUI curPowerModeText;
+
 
     public TMP_Text[] ResourceTexts;
     public TMP_Text[] ResourceCapacityTexts;
+
 
     public CityController cityController;
     [SerializeField] private ResourceManager resourceManager;
@@ -35,7 +38,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Image[] resourceGatheringBar;
 
-
+    private List<string> powerModeTexts = new();
 
     private void OnEnable() {
         GameManager.OnPauseToggled += ToggleMainMenu;
@@ -54,6 +57,18 @@ public class UIManager : MonoBehaviour
         GameManager.OnVictory -= ToggleVictoryPanel;
 
         ResourceManager.OnResourceChanged -= UpdateResourceUI;
+    }
+
+    private void Start() {
+        powerModeTexts.Add("Mode 1:\n-%50 Speed\n+%50 Coal Efficiency");
+        powerModeTexts.Add("Mode 2:\n+%0 Speed\n+%0 Coal Efficiency");
+        powerModeTexts.Add("Mode 3:\n%20 Speed\n-%20 Coal Efficiency");
+        powerModeTexts.Add("Mode 4:\n+%30 Speed\n+%20 Coal Efficiency");
+
+    }
+
+    public void UpdatePowerModeText(System.Single index) {
+        curPowerModeText.text = powerModeTexts[(int)index];
     }
 
     public void ToggleGameplayPanel(bool active) {
