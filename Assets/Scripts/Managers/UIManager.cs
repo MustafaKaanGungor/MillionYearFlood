@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text[] ResourceTexts;
     public TMP_Text[] ResourceCapacityTexts;
 
-
+    public CityController cityController;
     [SerializeField] private ResourceManager resourceManager;
 
     [SerializeField] private Button waitButton;
@@ -100,10 +100,10 @@ public class UIManager : MonoBehaviour
     }
 
     public void ToggleWaitButtonSprite() {
-        if(waitButton.image.sprite == leverUpImage) {
+        if(cityController.isWaiting) {
             waitButton.image.sprite = leverDownImage;
         }
-        else if (waitButton.image.sprite == leverDownImage) {
+        else{
             waitButton.image.sprite = leverUpImage;
         }
     }

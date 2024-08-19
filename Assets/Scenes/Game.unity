@@ -25512,6 +25512,7 @@ MonoBehaviour:
   - {fileID: 1441837945}
   - {fileID: 2050828251}
   - {fileID: 1636099332}
+  cityController: {fileID: 228674601}
   resourceManager: {fileID: 294604730}
   waitButton: {fileID: 1284307739}
   leverUpImage: {fileID: 21300000, guid: a160fc52d4d964a4a9a149da123957d0, type: 3}
