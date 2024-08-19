@@ -2662,6 +2662,7 @@ MonoBehaviour:
   resourceManager: {fileID: 294604730}
   gameManager: {fileID: 1038046788}
   uiManager: {fileID: 1904990773}
+  ParticleEffect: {fileID: 852986464}
   engineSmoke: {fileID: 852986467}
   tierUpgradeEffect: {fileID: 1550560897}
   buildingUnlockEffect: {fileID: 2022029300}
@@ -8027,7 +8028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &852986465
 Transform:
   m_ObjectHideFlags: 0

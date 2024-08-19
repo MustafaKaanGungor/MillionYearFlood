@@ -49,6 +49,7 @@ public class CityController : MonoBehaviour
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private UIManager uiManager;
+    public GameObject ParticleEffect;
 
     public ParticleSystem engineSmoke;
     public ParticleSystem tierUpgradeEffect;
@@ -101,9 +102,16 @@ public class CityController : MonoBehaviour
             Decelerate();
         }
 
+
+        if(tier>=2)
+        {
+            ParticleEffect.SetActive(true);
+            var emission = engineSmoke.emission;
+            emission.rateOverTime = defSmokeEmitionRate * speed;
+        }
+
+
         animator.speed = speed;
-        var emission = engineSmoke.emission;
-        emission.rateOverTime = defSmokeEmitionRate * speed;
 
         if (greenHouse.activeSelf ) {
             foodProduceTime += Time.deltaTime;
