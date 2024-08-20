@@ -12,7 +12,7 @@ public class ResourceManager : MonoBehaviour
 
     public UIManager uiManager;
 
-    public int totalHumanCount = 186;
+    public int totalHumanCount = 300;
 
     [SerializeField] private GameManager gameManager;
 
