@@ -900,18 +900,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d3f493b3357cef94ba0862a4c992e5f7, type: 3}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Color.a
-      value: 0.32941177
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2015,18 +2003,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d3f493b3357cef94ba0862a4c992e5f7, type: 3}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Color.a
-      value: 0.32941177
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2305,18 +2281,6 @@ PrefabInstance:
     - target: {fileID: 8267331308034144214, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d3f493b3357cef94ba0862a4c992e5f7, type: 3}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Color.a
-      value: 0.32941177
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4664,18 +4628,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d3f493b3357cef94ba0862a4c992e5f7, type: 3}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Color.a
-      value: 0.32941177
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5844,8 +5796,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.5727}
+  m_SizeDelta: {x: 10, y: -6.0531}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &543888248
 MonoBehaviour:
@@ -5860,7 +5812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.68772125, b: 1, a: 1}
+  m_Color: {r: 0.5647059, g: 0.74509805, b: 0.85882354, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6496,14 +6448,14 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1486766740}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 9.574951, y: -1.0979004}
-  m_SizeDelta: {x: 19.15, y: -40.27417}
+  m_AnchoredPosition: {x: 9.574951, y: 0.39520264}
+  m_SizeDelta: {x: 19.15, y: -54.6623}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &621596626
 MonoBehaviour:
@@ -6518,15 +6470,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.68605435, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.7197349, b: 0.2511125, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: adae6fcfa142d634f84e95d5aa5335c0, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6534,7 +6486,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.01
 --- !u!222 &621596627
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7825,18 +7777,6 @@ PrefabInstance:
     - target: {fileID: 8267331308034144214, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d3f493b3357cef94ba0862a4c992e5f7, type: 3}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Color.a
-      value: 0.32941177
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15383,8 +15323,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_AnchoredPosition: {x: 0, y: 1.5807037}
+  m_SizeDelta: {x: 10, y: -14.4519}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1105057583
 MonoBehaviour:
@@ -15399,7 +15339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9547169, g: 0.61457515, b: 0.15671764, a: 1}
+  m_Color: {r: 0.93333334, g: 0.72156864, b: 0.2509804, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15945,18 +15885,6 @@ PrefabInstance:
     - target: {fileID: 8267331308034144214, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d3f493b3357cef94ba0862a4c992e5f7, type: 3}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Color.a
-      value: 0.32941177
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16935,18 +16863,6 @@ PrefabInstance:
     - target: {fileID: 8267331308034144214, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d3f493b3357cef94ba0862a4c992e5f7, type: 3}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Color.a
-      value: 0.32941177
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18136,8 +18052,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -2.15625, y: -1.3173828}
-  m_SizeDelta: {x: 28.5298, y: -32.80847}
+  m_AnchoredPosition: {x: -2.15625, y: 0}
+  m_SizeDelta: {x: 28.5298, y: -47.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1393949087
 MonoBehaviour:
@@ -18152,15 +18068,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.6089783, b: 1, a: 1}
+  m_Color: {r: 0.56287825, g: 0.7438654, b: 0.8584906, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: adae6fcfa142d634f84e95d5aa5335c0, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -18168,7 +18084,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.92
 --- !u!222 &1393949088
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18465,18 +18381,6 @@ PrefabInstance:
     - target: {fileID: 8267331308034144214, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d3f493b3357cef94ba0862a4c992e5f7, type: 3}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Color.a
-      value: 0.32941177
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26871,18 +26775,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d3f493b3357cef94ba0862a4c992e5f7, type: 3}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Color.a
-      value: 0.32941177
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28426,8 +28318,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 1.5879974}
+  m_SizeDelta: {x: 0, y: -14.2918}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1938098539
 MonoBehaviour:
@@ -28449,7 +28341,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 35e1cadf115465d4d9dd497a446ef804, type: 3}
+  m_Sprite: {fileID: 21300000, guid: adae6fcfa142d634f84e95d5aa5335c0, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28458,7 +28350,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 5.61
+  m_PixelsPerUnitMultiplier: 5.13
 --- !u!222 &1938098540
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -35069,15 +34961,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 370050081507877044, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294309365
+      value: 4278190080
       objectReference: {fileID: 0}
-    - target: {fileID: 1471420547519793655, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 246.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 1471420547519793655, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
+    - target: {fileID: 1206513254957036057, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -44.214
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6625471393368909894, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: m_Name
@@ -35179,7 +35067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8032913137777694588, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294309365
+      value: 4278190080
       objectReference: {fileID: 0}
     - target: {fileID: 8267331308034144214, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -35272,34 +35160,6 @@ PrefabInstance:
     - target: {fileID: 8733351522784343409, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
       propertyPath: m_Color.r
       value: 0.6784314
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 35e1cadf115465d4d9dd497a446ef804, type: 3}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073155721465850405, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-      propertyPath: m_PixelsPerUnitMultiplier
-      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
