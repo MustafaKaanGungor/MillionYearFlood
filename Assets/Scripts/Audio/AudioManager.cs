@@ -22,11 +22,26 @@ public class AudioManager : MonoBehaviour{
             instance = this;
         }
 
-        foreach (var item in AudioManager.instance.audioSources) {
-            item.Stop();
-        }
 
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void StopAll() {
+
+        foreach (var item in AudioManager.instance.audioSources) {
+            if (item.clip == null) continue;
+
+            item.Stop();
+        }
+    }
+
+    public void ContinueAll() {
+
+        foreach (var item in AudioManager.instance.audioSources) {
+            if (item.clip == null) continue;
+
+            item.Play();
+        }
     }
 
     public void PlaySound(SoundEffect sound, bool playReverse = false){

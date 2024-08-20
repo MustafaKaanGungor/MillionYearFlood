@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = isPaused ? 0 : 1f;
 
+        if (isPaused) {
+            AudioManager.instance.StopAll();
+        }
+        else {
+            AudioManager.instance.ContinueAll();
+        }
 
         // Invoke on pause toggled event
         OnPauseToggled?.Invoke(isPaused);
@@ -52,7 +58,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void Victory() {
-
+        //AudioManager.instance.StopAll();
         OnVictory?.Invoke();
         //Time.timeScale = 0;
 
