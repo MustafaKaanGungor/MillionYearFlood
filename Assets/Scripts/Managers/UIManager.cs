@@ -96,7 +96,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void ToggleVictoryPanel() {
-        ToggleGameplayPanel(true);
+        //ToggleGameplayPanel(true);
         int humanCount = resourceManager.GetResourceAmount(ResourceManager.ResourceType.Humans);
         victoryText.text = string.Format(victoryText.text, humanCount, resourceManager.totalHumanCount - humanCount);
         victoryPanel.SetActive(true);
