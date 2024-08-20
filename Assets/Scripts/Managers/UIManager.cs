@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text tutorialText;
     public string[] tutorialSentences;
-    public float textSpeed = 0.03f;
+    public float textSpeed = 0.02f;
     private int index = 0;
     public GameObject tutorialPanel;
 
