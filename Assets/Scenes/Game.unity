@@ -13650,7 +13650,6 @@ MonoBehaviour:
   secondTierUpgrades:
   - {fileID: 1775873072}
   - {fileID: 414938889}
-  - {fileID: 1276226258}
   - {fileID: 1522022702}
   - {fileID: 660404828}
   - {fileID: 138242318}
@@ -17102,17 +17101,12 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &1276226258 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6625471393368909894, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
-  m_PrefabInstance: {fileID: 59982124}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1276226259 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7147997843390737179, guid: bbab8d83da6ab6b468ea83b6fd62b883, type: 3}
   m_PrefabInstance: {fileID: 59982124}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1276226258}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6cb2a8bc5e78ec4ebd6b708463559f6, type: 3}
