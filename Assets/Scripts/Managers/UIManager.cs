@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
     public CityController cityController;
     [SerializeField] private ResourceManager resourceManager;
 
-    [SerializeField] private Button waitButton;
+    [SerializeField] private Image leverImageRend;
 
     [SerializeField] private Sprite leverUpImage;
     [SerializeField] private Sprite leverDownImage;
@@ -116,10 +116,10 @@ public class UIManager : MonoBehaviour
 
     public void ToggleWaitButtonSprite() {
         if(cityController.isWaiting) {
-            waitButton.image.sprite = leverDownImage;
+            leverImageRend.sprite = leverDownImage;
         }
         else{
-            waitButton.image.sprite = leverUpImage;
+            leverImageRend.sprite = leverUpImage;
         }
     }
 

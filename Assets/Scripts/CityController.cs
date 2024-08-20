@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+
 public class CityController : MonoBehaviour
 {
     [System.Serializable]
@@ -25,6 +27,7 @@ public class CityController : MonoBehaviour
     public GameObject blacksmith;
     public GameObject watchTower;
     public GameObject resourceGatherArea;
+    public Slider powerSlider;
 
     public EngineTier[] engines;
     public EngineTier curEngine; //[HideInInspector] 
@@ -225,7 +228,7 @@ public class CityController : MonoBehaviour
         if (!isWaiting | canMoveAndGather) return;
 
 
-        curEngine.maxSpeed = prevSpeed;
+        curEngine.maxSpeed = 0f;
     }
 
     public void OverHeatEngines(float maxSpeed, float dur) {
@@ -235,19 +238,22 @@ public class CityController : MonoBehaviour
 
     private IEnumerator _OverHeatEngines(float maxSpeed, float dur) {
         canWait = false;
-
+        powerSlider.interactable = false;
         float tempMaxSpeed = this.curEngine.maxSpeed;
         float defAcceleration = acceleration;
 
         this.curEngine.maxSpeed = maxSpeed;
         acceleration *= 3;
         isEnginesOverheated = true;
+
         yield return new WaitForSeconds(dur);
 
         this.curEngine.maxSpeed = tempMaxSpeed;
         isEnginesOverheated = false;
         acceleration = defAcceleration;
         canWait = true;
+        powerSlider.interactable = true;
+
     }
 
 
@@ -255,7 +261,7 @@ public class CityController : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision) {
         if (!isWaiting) return;
 
-        if (speed > 0.2f) return;
+        if (speed > 0.2f && !canMoveAndGather) return;
 
         if(collision.gameObject.CompareTag("Iron")) {
             ironTimer += Time.deltaTime;

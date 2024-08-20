@@ -2595,7 +2595,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -14.8, y: -65.3}
+  m_AnchoredPosition: {x: -14.799988, y: -65.3}
   m_SizeDelta: {x: 200, y: 320}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &176143663
@@ -3298,6 +3298,7 @@ MonoBehaviour:
   blacksmith: {fileID: 1841012539}
   watchTower: {fileID: 1075093432}
   resourceGatherArea: {fileID: 335238828}
+  powerSlider: {fileID: 621223275}
   engines:
   - tier: 1
     maxSpeed: 0.5
@@ -4561,6 +4562,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5316805732422937818, guid: c88c0c5048c7aba4cb64c614f017ab13, type: 3}
   m_PrefabInstance: {fileID: 289758374}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &375239798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 375239799}
+  - component: {fileID: 375239800}
+  - component: {fileID: 375239801}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &375239799
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375239798}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1989328454}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 781, y: -163.02234}
+  m_SizeDelta: {x: 199.8, y: 343.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &375239800
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375239798}
+  m_CullTransparentMesh: 1
+--- !u!114 &375239801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375239798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: a160fc52d4d964a4a9a149da123957d0, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!82 &375479493 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 1778665302926902854, guid: b9ac1089d6d689647ae4806d034db878, type: 3}
@@ -7685,7 +7761,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -14.8, y: 43.1}
+  m_AnchoredPosition: {x: -14.799988, y: 43.1}
   m_SizeDelta: {x: 200, y: 320}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &731992119
@@ -17420,8 +17496,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.19810678}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -179, y: 0}
-  m_SizeDelta: {x: 200, y: -6}
+  m_AnchoredPosition: {x: -179, y: 21.834969}
+  m_SizeDelta: {x: 200, y: -49.67006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1284307739
 MonoBehaviour:
@@ -27749,7 +27825,7 @@ MonoBehaviour:
   - {fileID: 1636099332}
   cityController: {fileID: 228674601}
   resourceManager: {fileID: 294604730}
-  waitButton: {fileID: 1284307739}
+  leverImageRend: {fileID: 1284307740}
   leverUpImage: {fileID: 21300000, guid: a160fc52d4d964a4a9a149da123957d0, type: 3}
   leverDownImage: {fileID: 21300000, guid: 2e6debc6e1a2eeb4a936042b4da9509d, type: 3}
   playerSlider: {fileID: 1486766741}
@@ -28262,6 +28338,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 629145220}
+  - {fileID: 375239799}
   - {fileID: 1284307738}
   - {fileID: 610151374}
   - {fileID: 137677872}
