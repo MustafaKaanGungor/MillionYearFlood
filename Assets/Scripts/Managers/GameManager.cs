@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+
+
     public bool isPaused = false;
 
     public delegate void OnPauseToggledDelegate(bool isPaused);
@@ -15,18 +18,25 @@ public class GameManager : MonoBehaviour
     public delegate void OnVictoryDelegate();
     public static event OnVictoryDelegate OnVictory;
 
+    public delegate void OnTutorialDelegate();
+    public static event OnVictoryDelegate OnTutorial;
+
+
+
+
 
     void Awake() {
-        Time.timeScale = 1f;
+        
         isPaused = false;
     }
 
-    // Start is called before the first frame update
+
     void Start()
     {
+        OnTutorial();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -46,7 +56,7 @@ public class GameManager : MonoBehaviour
             AudioManager.instance.ContinueAll();
         }
 
-        // Invoke on pause toggled event
+
         OnPauseToggled?.Invoke(isPaused);
     }
 
@@ -58,9 +68,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void Victory() {
-        //AudioManager.instance.StopAll();
         OnVictory?.Invoke();
-        //Time.timeScale = 0;
-
     }
+
 }

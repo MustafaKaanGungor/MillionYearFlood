@@ -8,6 +8,13 @@ using Unity.VisualScripting;
 
 public class UIManager : MonoBehaviour
 {
+
+    public TMP_Text tutorialText;
+    public string[] tutorialSentences;
+    public float textSpeed = 0.05f;
+    private int index = 0;
+    public GameObject tutorialPanel;
+
     public GameObject gameplayPanel;
     public GameObject mainMenu;
     public GameObject gameOverPanel;
@@ -45,6 +52,7 @@ public class UIManager : MonoBehaviour
         GameManager.OnPauseToggled += ToggleGameplayPanel;
         GameManager.OnGameOver += ToggleGameOverPanel;
         GameManager.OnVictory += ToggleVictoryPanel;
+        GameManager.OnTutorial += ToggleTutorial;
 
         ResourceManager.OnResourceChanged += UpdateResourceUI;
 
@@ -230,5 +238,35 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+    }
+
+        public void ToggleTutorial()
+    {
+        StartCoroutine(DisplayTutorial());
+        Time.timeScale = 0f;
+    }
+
+
+        IEnumerator DisplayTutorial()
+    {
+        while (index < tutorialSentences.Length)
+        {
+            yield return StartCoroutine(TypeSentence(tutorialSentences[index]));
+            index++;
+            yield return new WaitForSecondsRealtime(1f); 
+
+            tutorialPanel.SetActive(false);
+            Time.timeScale = 1f;
+        }
+    }
+
+    IEnumerator TypeSentence(string sentence)
+    {
+        tutorialText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            tutorialText.text += letter;
+            yield return new WaitForSecondsRealtime(textSpeed);
+        }
     }
 }
