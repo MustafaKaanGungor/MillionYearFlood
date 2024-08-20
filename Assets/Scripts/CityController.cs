@@ -132,7 +132,7 @@ public class CityController : MonoBehaviour
                 foodProduceTime = 0;
                 int water = resourceManager.GetResourceAmount(ResourceManager.ResourceType.Water);
                 int amount = water > 5 ? 10 : water*2;
-                resourceManager.AddResource(ResourceManager.ResourceType.Food, water);
+                resourceManager.AddResource(ResourceManager.ResourceType.Food, 8);
                 resourceManager.RemoveResource(ResourceManager.ResourceType.Water, 5);
             }
         }
