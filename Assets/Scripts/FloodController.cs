@@ -40,7 +40,7 @@ public class FloodController : MonoBehaviour
         }
 
         if (collision.gameObject.CompareTag("City")) {
-            gameManager.GameOver("Drowned in the flood.");
+            gameManager.GameOver("Your people drowned in the flood.");
         }
     }
 

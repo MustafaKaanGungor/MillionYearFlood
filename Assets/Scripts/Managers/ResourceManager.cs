@@ -62,7 +62,7 @@ public class ResourceManager : MonoBehaviour
                 RemoveResource(ResourceType.Humans, amount);
 
                 if (GetResourceAmount(ResourceType.Humans) <= 0) {
-                    gameManager.GameOver("açlıktan öldün");
+                    gameManager.GameOver("All of your people died from hunger.");
                 }
             }
         }
