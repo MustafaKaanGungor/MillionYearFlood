@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour{
     public SoundEffect engineSound2;
     public SoundEffect floodSound;
 
-    public SoundEffect test3;
+    public SoundEffect music;
 
     public static AudioManager instance;
 
@@ -31,7 +31,7 @@ public class AudioManager : MonoBehaviour{
         foreach (var item in AudioManager.instance.audioSources) {
             if (item.clip == null) continue;
 
-            item.Stop();
+            item.Pause();
         }
     }
 

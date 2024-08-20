@@ -87,7 +87,7 @@ public class UpgradeManager : MonoBehaviour
     public void BuildBlacksmithB(Upgrade upgrade) {
         ApplyCost(upgrade);
 
-        //cityController.EnableBuilding(cityController.blacksmith);
+        cityController.EnableBuilding(cityController.blacksmith);
 
         cityController.woodPickAmount = 4;
         cityController.ironPickAmount = 4;

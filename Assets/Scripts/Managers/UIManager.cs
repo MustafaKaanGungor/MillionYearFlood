@@ -59,6 +59,8 @@ public class UIManager : MonoBehaviour
     }
 
     private void OnDisable() {
+        GameManager.OnTutorial -= ToggleTutorial;
+
         GameManager.OnPauseToggled -= ToggleMainMenu;
         //GameManager.OnPauseToggled -= ToggleGameplayPanel;
         GameManager.OnGameOver -= ToggleGameOverPanel;
@@ -241,25 +243,26 @@ public class UIManager : MonoBehaviour
     }
 
         public void ToggleTutorial()
-    {
-        StartCoroutine(DisplayTutorial());
-        Time.timeScale = 0f;
-    }
+        {
+            StartCoroutine(DisplayTutorial());
+            Time.timeScale = 0f;
+        }
 
 
         IEnumerator DisplayTutorial()
-    {
-        while (index < tutorialSentences.Length)
         {
-            yield return StartCoroutine(TypeSentence(tutorialSentences[index]));
-            index++;
-            yield return new WaitForSecondsRealtime(1f); 
+            while (index < tutorialSentences.Length)
+            {
+                yield return StartCoroutine(TypeSentence(tutorialSentences[index]));
+                index++;
+
+                yield return new WaitForSecondsRealtime(1f); 
 
 
-        }   
-        tutorialPanel.SetActive(false);
-        Time.timeScale = 1f;
-    }
+            }   
+            tutorialPanel.SetActive(false);
+            Time.timeScale = 1f;
+        }
 
     IEnumerator TypeSentence(string sentence)
     {
