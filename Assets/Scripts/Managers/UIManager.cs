@@ -49,7 +49,7 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable() {
         GameManager.OnPauseToggled += ToggleMainMenu;
-        GameManager.OnPauseToggled += ToggleGameplayPanel;
+        //GameManager.OnPauseToggled += ToggleGameplayPanel;
         GameManager.OnGameOver += ToggleGameOverPanel;
         GameManager.OnVictory += ToggleVictoryPanel;
         GameManager.OnTutorial += ToggleTutorial;
@@ -60,7 +60,7 @@ public class UIManager : MonoBehaviour
 
     private void OnDisable() {
         GameManager.OnPauseToggled -= ToggleMainMenu;
-        GameManager.OnPauseToggled -= ToggleGameplayPanel;
+        //GameManager.OnPauseToggled -= ToggleGameplayPanel;
         GameManager.OnGameOver -= ToggleGameOverPanel;
         GameManager.OnVictory -= ToggleVictoryPanel;
 
@@ -88,7 +88,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void ToggleGameOverPanel(string LoseText) {
-        ToggleGameplayPanel(true);
+        //ToggleGameplayPanel(true);
         gameOverPanel.SetActive(true);
         GameOverText.text = LoseText;
     }
