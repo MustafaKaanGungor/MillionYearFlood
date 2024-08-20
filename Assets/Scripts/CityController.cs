@@ -45,6 +45,7 @@ public class CityController : MonoBehaviour
     private float waterConsumeDur = 2f;
     private float waterConsumeTime = 0f;
     public bool isWaiting = false;
+    public bool isEnginesOverheated = false;
     private bool canWait = true;
 
     [SerializeField] private ResourceManager resourceManager;
@@ -240,27 +241,16 @@ public class CityController : MonoBehaviour
 
         this.curEngine.maxSpeed = maxSpeed;
         acceleration *= 3;
-
+        isEnginesOverheated = true;
         yield return new WaitForSeconds(dur);
 
         this.curEngine.maxSpeed = tempMaxSpeed;
-
+        isEnginesOverheated = false;
         acceleration = defAcceleration;
         canWait = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("End")) {
-            curEngine.maxSpeed /= 6f;
-        }
 
-        /*if (collision.gameObject.CompareTag("Flood")) {
-            // Game over
-            gameManager.GameOver("selden dolayı öldün");
-            return;
-        }*/
-
-    }
 
     private void OnTriggerStay2D(Collider2D collision) {
         if (!isWaiting) return;
@@ -344,8 +334,8 @@ public class CityController : MonoBehaviour
         }
 
 
-        if (collision.gameObject.CompareTag("End")) {
+        /*if (collision.gameObject.CompareTag("End")) {
             gameManager.Victory();
-        }
+        }*/
     }
 }

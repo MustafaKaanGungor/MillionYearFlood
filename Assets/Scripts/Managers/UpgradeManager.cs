@@ -54,7 +54,7 @@ public class UpgradeManager : MonoBehaviour
         if (cityController.isWaiting)
             cityController.ToggleWait();
 
-        cityController.OverHeatEngines(cityController.curEngine.maxSpeed * 3, 3f);
+        cityController.OverHeatEngines(cityController.curEngine.maxSpeed * 2, 3f);
     }
 
     public void EngineUpgrade1(Upgrade upgrade) {

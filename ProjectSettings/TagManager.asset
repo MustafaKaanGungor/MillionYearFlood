@@ -13,6 +13,7 @@ TagManager:
   - Human
   - Food
   - City
+  - Peak
   layers:
   - Default
   - TransparentFX

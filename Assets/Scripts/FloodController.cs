@@ -21,9 +21,12 @@ public class FloodController : MonoBehaviour
 
     void Update()
     {
-        distance = cam.transform.position.y - transform.position.y;
-        audioManager.floodSound.source.volume = refDistance / distance / 3;
+
         MoveUp();
+
+        distance = cam.transform.position.y - transform.position.y;
+        float volume = (refDistance / distance / 3);
+        audioManager.floodSound.source.volume = volume >= 0 ? volume : 0;
     }
 
     public void MoveUp() {
@@ -31,9 +34,9 @@ public class FloodController : MonoBehaviour
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("End") && speed > 0) {
+        if (collision.gameObject.CompareTag("Peak") && speed > 0) {
 
-            speed -= (float)(Time.deltaTime * 0.1);
+            speed -= (float)(Time.deltaTime * 0.07f);
         }
 
         if (collision.gameObject.CompareTag("City")) {
