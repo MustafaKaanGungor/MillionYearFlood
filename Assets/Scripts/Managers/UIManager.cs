@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text tutorialText;
     public string[] tutorialSentences;
-    public float textSpeed = 0.02f;
+    public float textSpeed = 0.01f;
     private int index = 0;
     public GameObject tutorialPanel;
 
@@ -44,6 +44,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Transform mapborder;
 
     [SerializeField] private Image[] resourceGatheringBar;
+    private Coroutine tutorialCoroutine;
 
     private List<string> powerModeTexts = new();
 
@@ -242,27 +243,29 @@ public class UIManager : MonoBehaviour
     }
     }
 
-        public void ToggleTutorial()
+    public void ToggleTutorial()
+    {
+        if (tutorialCoroutine != null)
         {
-            StartCoroutine(DisplayTutorial());
-            Time.timeScale = 0f;
+            StopCoroutine(tutorialCoroutine);
         }
 
+        tutorialCoroutine = StartCoroutine(DisplayTutorial());
+        Time.timeScale = 0f;
+    }
 
-        IEnumerator DisplayTutorial()
+    IEnumerator DisplayTutorial()
+    {
+        while (index < tutorialSentences.Length)
         {
-            while (index < tutorialSentences.Length)
-            {
-                yield return StartCoroutine(TypeSentence(tutorialSentences[index]));
-                index++;
+            yield return StartCoroutine(TypeSentence(tutorialSentences[index]));
+            index++;
 
-                yield return new WaitForSecondsRealtime(1f); 
-
-
-            }   
-            tutorialPanel.SetActive(false);
-            Time.timeScale = 1f;
-        }
+            yield return new WaitForSecondsRealtime(1f); 
+        }   
+        tutorialPanel.SetActive(false);
+        Time.timeScale = 1f;
+    }
 
     IEnumerator TypeSentence(string sentence)
     {
@@ -272,5 +275,19 @@ public class UIManager : MonoBehaviour
             tutorialText.text += letter;
             yield return new WaitForSecondsRealtime(textSpeed);
         }
+    }
+
+    public void SkipText()
+    {
+        if (tutorialCoroutine != null)
+        {
+            StopCoroutine(tutorialCoroutine);
+            tutorialCoroutine = null;
+        }
+
+        // Hızla metni göster
+        tutorialText.text = string.Join(" ", tutorialSentences);
+        tutorialPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
