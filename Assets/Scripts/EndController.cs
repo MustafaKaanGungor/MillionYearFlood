@@ -7,6 +7,7 @@ public class EndController : MonoBehaviour
 {
     public GameManager gameManager;
     public CityController cityController;
+    public ResourceManager resourceManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,10 @@ public class EndController : MonoBehaviour
             gameManager.Victory();
             cityController.ToggleWait();
             collision.gameObject.transform.parent.DOKill();
+            cityController.animator.speed = 0f;
+            cityController.enabled = false;
+
+            resourceManager.enabled = false;
         }
 
         /*if (collision.gameObject.CompareTag("Flood")) {
@@ -36,4 +41,5 @@ public class EndController : MonoBehaviour
             return;
         }*/
     }
+
 }

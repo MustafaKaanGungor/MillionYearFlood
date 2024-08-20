@@ -1172,6 +1172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1038046788}
   cityController: {fileID: 228674601}
+  resourceManager: {fileID: 294604730}
 --- !u!1 &84833395
 GameObject:
   m_ObjectHideFlags: 0
