@@ -128,7 +128,7 @@ public class CityController : MonoBehaviour
 
         if (greenHouse.activeSelf ) {
             foodProduceTime += Time.deltaTime;
-            if(foodProduceTime >= 10f && resourceManager.GetResourceAmount(ResourceManager.ResourceType.Water) > 0) {
+            if(foodProduceTime >= 10f && resourceManager.GetResourceAmount(ResourceManager.ResourceType.Water) > 1) {
                 foodProduceTime = 0;
                 int water = resourceManager.GetResourceAmount(ResourceManager.ResourceType.Water);
                 int amount = water > 5 ? 10 : water*2;
