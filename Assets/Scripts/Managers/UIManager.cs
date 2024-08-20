@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text tutorialText;
     public string[] tutorialSentences;
-    public float textSpeed = 0.05f;
+    public float textSpeed = 0.03f;
     private int index = 0;
     public GameObject tutorialPanel;
 
@@ -255,9 +255,10 @@ public class UIManager : MonoBehaviour
             index++;
             yield return new WaitForSecondsRealtime(1f); 
 
-            tutorialPanel.SetActive(false);
-            Time.timeScale = 1f;
-        }
+
+        }   
+        tutorialPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 
     IEnumerator TypeSentence(string sentence)
