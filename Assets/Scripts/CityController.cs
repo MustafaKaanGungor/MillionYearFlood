@@ -50,6 +50,7 @@ public class CityController : MonoBehaviour
     public bool isWaiting = false;
     public bool isEnginesOverheated = false;
     private bool canWait = true;
+    public bool isInPeak = false;
 
     [SerializeField] private ResourceManager resourceManager;
     [SerializeField] private GameManager gameManager;
@@ -223,6 +224,11 @@ public class CityController : MonoBehaviour
         else if (speed > 0) {
             isWaiting = false;
             canWait = true;
+        }
+
+        if (isInPeak) {
+            curEngine.maxSpeed = prevSpeed;
+            return;
         }
 
         if (!isWaiting | canMoveAndGather) return;

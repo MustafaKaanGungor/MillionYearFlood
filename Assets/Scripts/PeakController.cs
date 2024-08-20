@@ -13,6 +13,7 @@ public class PeakController : MonoBehaviour
         speedBeforeEnter = cityController.curEngine.defMaxSpeed;
         if (collision.gameObject.CompareTag("City")) {
             cityController.curEngine.maxSpeed /= 4f;
+            cityController.isInPeak = true;
         }
 
         /*if (collision.gameObject.CompareTag("Flood")) {
@@ -26,7 +27,7 @@ public class PeakController : MonoBehaviour
         if (collision.gameObject.CompareTag("City")) {
 
             //if(cityController.isEnginesOverheated)
-
+            cityController.isInPeak = false;
             cityController.curEngine.maxSpeed *= 2f;
         }
 
