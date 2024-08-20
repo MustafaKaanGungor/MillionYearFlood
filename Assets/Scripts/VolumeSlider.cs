@@ -10,19 +10,23 @@ public class VolumeSlider : MonoBehaviour
     public AudioMixer mixer;
 
     public static string volumeKey = "vol";
+    private float maxValue;
 
     public void Start() {
-        if(PlayerPrefs.HasKey(volumeKey))
-            mixer.SetFloat("Master", Mathf.Log10(PlayerPrefs.GetFloat(volumeKey)) * 20);
+        maxValue = audioSlider.maxValue + 1;
+
+        if (PlayerPrefs.HasKey(volumeKey))
+            audioSlider.value = PlayerPrefs.GetFloat(volumeKey) * maxValue; //mixer.SetFloat("Master", Mathf.Log10(PlayerPrefs.GetFloat(volumeKey)) * 20);
+
         else {
-            mixer.SetFloat("Master", Mathf.Log10(3/5 * 20));
+            mixer.SetFloat("Master", Mathf.Log10(3 / maxValue * 20));
         }
     }
 
     public void SetMasterVolume(System.Single value) {
         Debug.Log("master volume level saved.");
 
-        float volume = value / 5;
+        float volume = value / maxValue;
 
         volume = volume == 0 ? 0.01f : volume;
 
